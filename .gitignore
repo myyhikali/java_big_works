@@ -1,2 +1,6 @@
 /target
 *.csv
+
+
+/.idea
+*.iml
