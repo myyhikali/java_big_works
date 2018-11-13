@@ -9,5 +9,8 @@
         <module name="javabigwork" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="javabigwork" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
