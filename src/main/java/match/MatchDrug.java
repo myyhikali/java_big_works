@@ -25,7 +25,7 @@ public class MatchDrug {
 	String regexDrugName="("+"".join("|", Drug)+")";
 
 
-	public List<BeanDrug> drugList=new ArrayList<>();
+	public List<BeanDrug> drugList=new ArrayList<BeanDrug>();
 	public List<BeanDrug> MatchDrugs(String text)
 	{
 		String [] sentences=text.split("[。；;]");
@@ -39,7 +39,7 @@ public class MatchDrug {
 
 		String drugNumber[]=null;
 
-		LinkedList<String[]> drugNumberStack = new LinkedList<>();
+		LinkedList<String[]> drugNumberStack = new LinkedList<String[]>();
 
 		for(String s:sentences) {
 			if(!drugNameFlag||drugName!=null) {
@@ -71,7 +71,7 @@ public class MatchDrug {
 					drugPriceMagnitude=priceBakMatcher.group(1);
 				}
 
-				List<String[]> drugNumberMatch=new ArrayList<>();
+				List<String[]> drugNumberMatch=new ArrayList<String[]>();
 				Pattern patternDrugNum= Pattern.compile(regexNum);
 				Matcher drugNumMatcher = patternDrugNum.matcher(s);
 				if(drugNumMatcher.find()) {

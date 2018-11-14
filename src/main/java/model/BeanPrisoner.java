@@ -12,10 +12,15 @@ public class BeanPrisoner {
 	private String level;
 	private String work;
 	private String place;
+	private String idCard;
 	private List<String> crime;
 	private String penalty;
+	private float penaltySum;
 	private String prisonType;
+	private String prisonTime;
 	private List<BeanCase> cases;
+
+
 	public String getName() {
 		return name;
 	}
@@ -81,5 +86,29 @@ public class BeanPrisoner {
 	}
 	public void setWork(String work) {
 		this.work = work;
-	} 
+	}
+
+	public float getPenaltySum() {
+		return penaltySum;
+	}
+
+	public void setPenaltySum(float penaltySum) {
+		this.penaltySum = penaltySum;
+	}
+
+	public String getPrisonTime() {
+		return prisonTime;
+	}
+
+	public void setPrisonTime(String prisonTime) {
+		this.prisonTime = prisonTime;
+	}
+
+	public String getIdCard() {
+		return idCard;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
+	}
 }

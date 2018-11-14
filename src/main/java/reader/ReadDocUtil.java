@@ -1,10 +1,5 @@
 package reader;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-
-
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.ooxml.POIXMLDocument;
@@ -12,6 +7,10 @@ import org.apache.poi.ooxml.extractor.POIXMLTextExtractor;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 
 
@@ -28,7 +27,7 @@ public class ReadDocUtil {
 //            return readWord_2007(fileName);
 //        }
         else{
-            System.out.println("¸ÃÎÄ¼ş²»ÊÇwordÎÄµµ£¬ÇëÖØĞÂÑ¡Ôñ£¡");
+            System.out.println("è¯¥æ–‡ä»¶ä¸æ˜¯wordæ–‡æ¡£ï¼Œè¯·é‡æ–°é€‰æ‹©ï¼");
             return "";
         }
     }
@@ -39,10 +38,10 @@ public class ReadDocUtil {
             HWPFDocument document = new HWPFDocument(stream);
             WordExtractor word = new WordExtractor(document);
             text = word.getText();
-            //È¥µôwordÎÄµµÖĞµÄ¶à¸ö»»ĞĞ
+            //å»æ‰wordæ–‡æ¡£ä¸­çš„å¤šä¸ªæ¢è¡Œ
             text = text.replaceAll("(\\r\\n){2,}", "\r\n");
             text = text.replaceAll("(\\n){2,}", "\n");
-            System.out.println("¶ÁÈ¡WordÎÄµµ³É¹¦£¡");
+            System.out.println("è¯»å–Wordæ–‡æ¡£æˆåŠŸï¼");
             stream.close();
             return text;
         }catch(Exception e){
@@ -56,11 +55,11 @@ public class ReadDocUtil {
 //            OPCPackage oPCPackage = POIXMLDocument.openPackage(fileName);
 //            XWPFDocument xwpf = new XWPFDocument(oPCPackage);
 //            POIXMLTextExtractor ex = new XWPFWordExtractor(xwpf);
-//            text = ex.getText();
-//            //È¥µôwordÎÄµµÖĞµÄ¶à¸ö»»ĞĞ
+//            text = ex.getDocument().toString();
+//            //å»æ‰wordæ–‡æ¡£ä¸­çš„å¤šä¸ªæ¢è¡Œ
 //            text = text.replaceAll("(\\r\\n){2,}", "\r\n");
 //            text = text.replaceAll("(\\n){2,}", "\n");
-//            System.out.println("¶ÁÈ¡WordÎÄµµ³É¹¦£¡");
+//            System.out.println("è¯»å–Wordæ–‡æ¡£æˆåŠŸï¼");
 //            return text;
 //        }catch(Exception e){
 //            e.printStackTrace();

@@ -9,6 +9,7 @@ public class BeanCrime {
 	private String procuratorate;
 	private List<BeanPrisoner> prisoners;
 	private Date date;
+	private BeanPrisoner firstPrisoner;
 	private List<BeanDrug> drugs;
 	public String getArea() {
 		return area;
@@ -46,6 +47,12 @@ public class BeanCrime {
 	public void setDrugs(List<BeanDrug> drugs) {
 		this.drugs = drugs;
 	}
-	
-	
+
+	public BeanPrisoner getFirstPrisoner() {
+		return firstPrisoner;
+	}
+
+	public void setFirstPrisoner(BeanPrisoner firstPrisoner) {
+		this.firstPrisoner = firstPrisoner;
+	}
 }

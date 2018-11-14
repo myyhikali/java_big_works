@@ -18,9 +18,8 @@ public class MatchCase {
 		{"甲基苯丙胺", "冰毒", "大麻", "可卡因", "海洛因", "吗啡", "卡西酮", "鸦片", "K粉", "摇头丸", "杜冷丁", "古柯","古柯碱", "咖啡因", "三唑仑", "羟基丁酸"};
 	
 	private Pattern pattern = Pattern.compile(regexCase);
-	public List<BeanPrisoner> Match(Map<String, BeanPrisoner> prisonerMap, String text)
+	public Map<String,BeanPrisoner> Match(Map<String, BeanPrisoner> prisonerMap, String text)
 	{
-		List<BeanPrisoner> prisoners = new ArrayList<>();
 		Matcher matcher = pattern.matcher(text);
 		Set<String> names=prisonerMap.keySet();
 		String regexBuyer="([贩][卖][给][\\u0391-\\uFFE5|[、]&&[^，]]+)|([得][毒][资][\\u0391-\\uFFE5|[、]|0-9&&[^，]]+)"+
@@ -44,7 +43,7 @@ public class MatchCase {
 			}
 		}
 		
-		return prisoners;
+		return prisonerMap;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

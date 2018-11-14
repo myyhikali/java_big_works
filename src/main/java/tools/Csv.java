@@ -42,12 +42,17 @@ public class Csv {
         return new Pair<String[], ArrayList<String[]>>(header, list);
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         String[] headers = {"编号","姓名","年龄"};
         String[] content = {"12365","张山","34"};
         ArrayList<String []> tmp = new ArrayList();
         tmp.add(content);
-        writer("Hello.csv", new Pair<String[], ArrayList<String[]>>(headers, tmp), true, "UTF-8");
+        try {
+            writer("Hello.csv", new Pair<String[], ArrayList<String[]>>(headers, tmp), true, "UTF-8");
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }

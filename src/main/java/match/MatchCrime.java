@@ -1,11 +1,7 @@
 package match;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -30,9 +26,9 @@ public class MatchCrime {
 		
 		BeanCrime crime = new BeanCrime();
 		String text = ReadDocUtil.readWord(fileName);
-		Set<String> names = new HashSet<>();
-		List<BeanPrisoner> prisoners=new MatchPrisoner().Match(text);
-        
+
+		Map<String,BeanPrisoner> prisonerMap=new MatchPrisoner().Match(text);
+        List<BeanPrisoner> prisoners = new ArrayList<BeanPrisoner>();
 		
         Matcher matcher = pattern.matcher(text);
         while( matcher.find() )
@@ -48,7 +44,15 @@ public class MatchCrime {
         	}
         	else if(matcher.group(3)!=null)
         	{
-        	
+				System.out.println(matcher.group(3));
+				String regexFirst="[被][告][人][\\u0391-\\uFFE5&&]+?([犯]|[、])";
+				Matcher firstMatcher = Pattern.compile(regexFirst).matcher(matcher.group(3));
+				if(firstMatcher.find())
+				{
+					String firstName = firstMatcher.group();
+					firstName = firstName.substring(3, firstName.length()-1);
+					crime.setFirstPrisoner(prisonerMap.get(firstName));
+				}
         	}  
         	else if(matcher.group(4)!=null) //判决日期
         	{
@@ -57,12 +61,18 @@ public class MatchCrime {
         			crime.setDate(parseDate(matcher.group()));
         		}
         	}
-        	else if(matcher.group(5)!=null) //判决日期
+        	else if(matcher.group(5)!=null) //证据毒品信息
         	{
         		System.out.println(matcher.group());
         		crime.setDrugs(new MatchDrug().MatchDrugs(matcher.group()));
         	}
         }
+
+        for(String name:prisonerMap.keySet())
+		{
+			prisoners.add(prisonerMap.get(name));
+		}
+		crime.setPrisoners(prisoners);
 	}
 	public static Date parseDate(String dateString){
 		SimpleDateFormat dateFormat =new SimpleDateFormat("yyyy年MM月dd日");
@@ -78,6 +88,8 @@ public class MatchCrime {
 		dateString=dateString.replaceAll("七", "7");
 		dateString=dateString.replaceAll("八", "8");
 		dateString=dateString.replaceAll("九", "9");
+		dateString=dateString.replaceAll("O", "0");
+		dateString=dateString.replaceAll("o", "0");
 		
 		try {
 			return dateFormat.parse(dateString);
