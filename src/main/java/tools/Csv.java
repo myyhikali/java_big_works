@@ -13,10 +13,12 @@ public class Csv {
 
         CsvWriter csvWriter = new CsvWriter(filepath, ',', Charset.forName(charSet));
 
-        String[]  headers = data.getKey();
+        Pair<String[], ArrayList<String[]>> formatData = preProcess(data);
+
+        String[]  headers = formatData.getKey();
         ArrayList<String []> content = null;
         if(hasHeader)
-            content = data.getValue();
+            content = formatData.getValue();
 
         csvWriter.writeRecord(headers);
 
@@ -42,12 +44,68 @@ public class Csv {
         return new Pair<String[], ArrayList<String[]>>(header, list);
     }
 
+    public static Pair<String[], ArrayList<String[]>> preProcess(Pair<String[], ArrayList<String[]>> data){
+        String[] header = data.getKey();
+        ArrayList<String[]> list = data.getValue();
+
+        String[] newHeader = new String[header.length];
+        ArrayList<String[]> newList = new ArrayList<String[]>();
+
+        for (int i = 0; i < header.length; ++i){
+            newHeader[i] = toSemiangle(header[i]);
+        }
+        for (int i = 0; i < list.size(); ++i){
+            String[] newRecord = new String[header.length];
+            for (int j = 0; j < header.length; ++j){
+                newRecord[j] = toSemiangle(list.get(i)[j]);
+            }
+            newList.add(newRecord);
+        }
+
+
+        return new Pair<String[], ArrayList<String[]>>(newHeader, newList);
+
+    }
+
+    /**
+     * 全角空格为12288，半角空格为32
+     * 其他字符半角(33-126)与全角(65281-65374)的对应关系是：均相差65248
+     *
+     * 将字符串中的全角字符转为半角
+     * @param src 要转换的包含全角的任意字符串
+     * @return  转换之后的字符串
+     */
+
+    private static String toSemiangle(String src) {
+        char[] c = src.toCharArray();
+        for (int index = 0; index < c.length; index++) {
+            if (c[index] == 12288) {// 全角空格
+                c[index] = (char) 32;
+            } else if (c[index] > 65280 && c[index] < 65375) {// 其他全角字符
+                c[index] = (char) (c[index] - 65248);
+            }
+        }
+        return String.valueOf(c);
+    }
+
+
     public static void main(String[] args) throws IOException {
-        String[] headers = {"编号","姓名","年龄"};
-        String[] content = {"12365","张山","34"};
-        ArrayList<String []> tmp = new ArrayList();
-        tmp.add(content);
-        writer("Hello.csv", new Pair<String[], ArrayList<String[]>>(headers, tmp), true, "UTF-8");
+        String filepath = "C:\\Users\\Chars\\OneDrive\\文档\\大学工作与学习\\学习\\JAVA\\project\\舟山.csv";
+        Pair<String[], ArrayList<String[]>> data = read(filepath, true, "GBK");
+        String[] header = data.getKey();
+        ArrayList<String[]> list = data.getValue();
+
+        for (String a: header){
+            System.out.print(a + " ");
+        }
+        for (String[] a: list){
+            for (String b: a){
+                System.out.print(b + " ");
+            }
+            System.out.println();
+        }
+
+        writer("csv/舟山.csv", data, true, "UTF-8");
 
     }
 }
