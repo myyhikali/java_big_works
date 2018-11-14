@@ -1,11 +1,11 @@
-import com.csvreader.CsvReader;
-import com.csvreader.CsvWriter;
+import tools.Format;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
+
 
 public class Test {
 
     public static void main(String[] args) throws IOException{
+        System.out.print(Format.getCaseYear("(2018)"));
     }
 }
