@@ -1,7 +1,7 @@
 package tools;
 
 public class Format {
-    public static int getCaseYear(String item){
-        return Integer.parseInt(item.substring(1, 5));
+    public static String getCaseYear(String item){
+        return item.substring(1, 5);
     }
 }
