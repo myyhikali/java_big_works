@@ -21,7 +21,7 @@ public class MatchCrime {
 	
 	
 	private Pattern pattern = Pattern.compile(regexPlace);
-	public void Match(String fileName)
+	public BeanCrime Match(String fileName)
 	{
 		
 		BeanCrime crime = new BeanCrime();
@@ -73,6 +73,9 @@ public class MatchCrime {
 			prisoners.add(prisonerMap.get(name));
 		}
 		crime.setPrisoners(prisoners);
+        crime.setMinimumAge(compareDate(prisoners));
+
+        return crime;
 	}
 	public static Date parseDate(String dateString){
 		SimpleDateFormat dateFormat =new SimpleDateFormat("yyyy年MM月dd日");
@@ -98,6 +101,15 @@ public class MatchCrime {
 		}
 		
 	}
+	public static Date compareDate(List<BeanPrisoner> prisoners)
+	{
+		Date tempDate=prisoners.get(0).getBirth() ;
+		for(int i=0;i<prisoners.size();i++)
+			if( tempDate.getTime()>prisoners.get(i).getBirth().getTime())
+				tempDate = prisoners.get(i).getBirth();
+		return tempDate;
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new MatchCrime().Match("E:\\学习\\java项目\\舟山\\（2016）浙0902刑初00262号.doc");
