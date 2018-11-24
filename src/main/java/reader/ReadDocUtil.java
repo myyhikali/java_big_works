@@ -12,9 +12,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
-
-
-
 public class ReadDocUtil {
 
 	public static String readWord(String fileName){
@@ -23,9 +20,9 @@ public class ReadDocUtil {
         if(file.getName().endsWith(".doc")){
             return readWord_2003(file);
         }
-//        else if(file.getName().endsWith(".docx")){
-//            return readWord_2007(fileName);
-//        }
+        else if(file.getName().endsWith(".docx")){
+            return readWord_2007(fileName);
+        }
         else{
             System.out.println("该文件不是word文档，请重新选择！");
             return "";
@@ -49,21 +46,21 @@ public class ReadDocUtil {
         }
         return "";
     }
-//    public static String readWord_2007(String fileName){
-//        String text = "";
-//        try{
-//            OPCPackage oPCPackage = POIXMLDocument.openPackage(fileName);
-//            XWPFDocument xwpf = new XWPFDocument(oPCPackage);
-//            POIXMLTextExtractor ex = new XWPFWordExtractor(xwpf);
-//            text = ex.getDocument().toString();
-//            //去掉word文档中的多个换行
-//            text = text.replaceAll("(\\r\\n){2,}", "\r\n");
-//            text = text.replaceAll("(\\n){2,}", "\n");
-//            System.out.println("读取Word文档成功！");
-//            return text;
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
-//        return "";
-//    }
+    public static String readWord_2007(String fileName){
+        String text = "";
+        try{
+            OPCPackage oPCPackage = POIXMLDocument.openPackage(fileName);
+            XWPFDocument xwpf = new XWPFDocument(oPCPackage);
+            POIXMLTextExtractor ex = new XWPFWordExtractor(xwpf);
+            text = ex.getText();
+            //去掉word文档中的多个换行
+            text = text.replaceAll("(\\r\\n){2,}", "\r\n");
+            text = text.replaceAll("(\\n){2,}", "\n");
+            System.out.println("读取Word文档成功！");
+            return text;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return "";
+    }
 }

@@ -4,15 +4,49 @@ import javafx.util.Pair;
 import match.MatchCrime;
 import model.BeanCase;
 import model.BeanCrime;
+import model.BeanPrisoner;
+import reader.ReadFilePath;
 import tools.Csv;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import static tools.Csv.writer;
 
 public class ParseToCsv {
     //writer(String filepath, Pair<String[], ArrayList<String[]>> data, boolean hasHeader, String charSet)
-    BeanCrime crime = new MatchCrime().Match("E:\\Ñ§Ï°\\javaÏîÄ¿\\ÖÛÉ½\\£¨2016£©Õã0902ĞÌ³õ00262ºÅ.doc");
-    String [] titles={"°¸ºÅ","·¨ÔºÃû³Æ","Ò»°¸ÈËÊı","ÄêÁä×îĞ¡ÈËÔ±³öÉúÈÕÆÚ","µÚÒ»±»¸æĞÕÃû","×ïÃû","ĞÌ·£ÖÖÀà","ĞÌÆÚ","²Æ²úĞÌÖÖÀà","²Æ²úĞÌ½ğ¶î","¶¾Æ·ÖÖÀàºÍÊıÁ¿»òµ¥Î»","¶¾Æ·µ¥¼Û"};
+
+    public static String [] titles={"æ¡ˆå·","æ³•é™¢åç§°","åœ°åŒº","æ—¶é—´","ä¸€æ¡ˆäººæ•°","å¹´é¾„æœ€å°äººå‘˜å‡ºç”Ÿæ—¥æœŸ","ç¬¬ä¸€è¢«å‘Šå§“å","æ€§åˆ«","èº«ä»½è¯","åæ—","æ–‡åŒ–ç¨‹åº¦","èŒä¸š","æˆ·ç±","ç½ªå","åˆ‘ç½šç§ç±»","åˆ‘æœŸ","è´¢äº§åˆ‘ç§ç±»","è´¢äº§åˆ‘é‡‘é¢","æ¯’å“ç§ç±»å’Œæ•°é‡æˆ–å•ä½","æ¯’å“å•ä»·"};
+    public static Map<String, BeanPrisoner> PrisonerMap=new HashMap<>();
+
+    public static void parseToCsv(String filePath,String saveName)
+    {
+        ArrayList<String[]> crimeList = new ArrayList<>();
+        ArrayList<String> filePaths = new ReadFilePath().getFiles(filePath);
+        ArrayList<BeanCrime> crimes = new ArrayList<>();
+        for(String fileName:filePaths)
+        {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥");
+            BeanCrime tempCrime = new MatchCrime().Match(fileName);
+            crimes.add(tempCrime);
+            crimeList.add(new String[]{tempCrime.getSerial(),tempCrime.getProcuratorate(),tempCrime.getArea(),dateFormat.format(tempCrime.getDate()),Integer.toString(tempCrime.getPrisoners().size()),dateFormat.format(tempCrime.getMinimumAge()),
+            tempCrime.getFirstPrisoner().getName(),tempCrime.getFirstPrisoner().getSex(),tempCrime.getFirstPrisoner().getIdCard(),tempCrime.getFirstPrisoner().getNation(),
+                    tempCrime.getFirstPrisoner().getLevel(),tempCrime.getFirstPrisoner().getWork(),tempCrime.getFirstPrisoner().getPlace(),tempCrime.getFirstPrisoner().showCrime(),tempCrime.getFirstPrisoner().getPrisonType(),tempCrime.getFirstPrisoner().getPrisonTime(),
+            tempCrime.getFirstPrisoner().getPenalty(),Float.toString(tempCrime.getFirstPrisoner().getPenaltySum()),tempCrime.showDrugs(),tempCrime.showAverageDrugs()});
+        }
+
+        try {
+            writer("E://å­¦ä¹ //javaé¡¹ç›®//Test//"+saveName+".csv",new Pair<>(titles,crimeList),true,"UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void main(String args[]){
+        ParseToCsv.parseToCsv("E://å­¦ä¹ //javaé¡¹ç›®//åˆ¤å†³ä¹¦//2018å¹´1-6æœˆä»½æ¯’å“åˆ‘äº‹æ¡ˆä»¶ä¸€å®¡//èˆŸå±±","èˆŸå±±" );
+    }
 
 
-   // writer("E:\\Ñ§Ï°\\javaÏîÄ¿\\test.csv",new Pair<String[], ArrayList<String[]>>(),true,"UTF-8");
 }

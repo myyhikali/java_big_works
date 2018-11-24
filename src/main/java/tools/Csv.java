@@ -57,7 +57,7 @@ public class Csv {
         }
         for (int i = 0; i < list.size(); ++i){
             String[] newRecord = new String[header.length];
-            for (int j = 0; j < header.length; ++j){
+            for (int j = 0; j < list.get(i).length; ++j){
                 newRecord[j] = toSemiangle(list.get(i)[j]);
             }
             newList.add(newRecord);
@@ -78,6 +78,8 @@ public class Csv {
      */
 
     private static String toSemiangle(String src) {
+        if(src==null)
+            return "";
         char[] c = src.toCharArray();
         for (int index = 0; index < c.length; index++) {
             if (c[index] == 12288) {// 全角空格

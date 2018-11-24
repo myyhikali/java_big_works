@@ -29,7 +29,6 @@ public class MatchDrug {
 	public List<BeanDrug> MatchDrugs(String text)
 	{
 		String [] sentences=text.split("[。；;]");
-		System.out.println(sentences[0]);
 		String drugName=null;
 		boolean drugNameFlag = false;
 
@@ -127,9 +126,13 @@ public class MatchDrug {
 
 	}
 	public static void main(String[] args) {
-		List<BeanDrug> drugs=new MatchDrug().MatchDrugs("2015年7、8月至2016年1月期间，被告人毛万红、郑静英单独或共同向陈贤灵、顾亚富、邢大亮、王伟军贩卖甲基苯丙胺和甲基苯丙胺片剂，其中，被告人毛万红参与贩卖甲基苯丙胺及甲基苯丙胺片剂4次，共计24.36克，被告人郑静英参与贩卖甲基苯丙胺及甲基苯丙胺片剂3次，共计14.36克。2016年3月2日凌晨，民警抓获被告人毛万红，并从其身上查获甲基苯丙胺及甲基苯丙胺片剂43.348克。同日，民警对被告人毛万红、郑静英暂住的定海区蓬莱路8幢7号车棚以及定海紫竹坑区42号出租房进行检查，共查获甲基苯丙胺及甲基苯丙胺片剂7.623克。2016年10月至11月期间，被告人郑静英、方志明、关贺永、罗山宽单独或共同在舟山市定海区、普陀区向他人贩卖甲基苯丙胺（冰毒），被告人郑静英贩卖甲基苯丙胺15.1克，方志明贩卖甲基苯丙胺12克，被告人关贺永、罗山宽贩卖0.8克。2016年11月16日，民警在被告人郑静英暂住处查获甲基苯丙胺及甲基苯丙胺片剂共计2.54克。2016年11月上旬至15日期间，被告人郑静英在舟山市普陀区沈家门街道教场路162弄24号房间内，先后容留陆利波吸食甲基苯丙胺（冰毒）3次。");
+		List<BeanDrug> drugs=new MatchDrug().MatchDrugs("2017年5月14日，胡伟电话联系被告人刘先乾购买甲基苯丙胺（冰毒），刘先乾表示买的量大可送货上门，后两人经商量决定以每克150元的价格交易100克，刘先乾负责将毒品从嘉善送到金华。");
 		for(BeanDrug drug:drugs)
+		{
 			System.out.println(drug.getDrugType());
+			System.out.println(drug.getDrugPrice());
+		}
+
 	}
 
 }

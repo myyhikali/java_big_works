@@ -12,7 +12,29 @@ public class BeanCrime {
     private Date date;
     private List<BeanDrug> drugs;
     private BeanPrisoner firstPrisoner;
-    private Date minimumAge ;
+    private Date minimumAge;
+
+    public String showDrugs(){
+        if(drugs==null||drugs.size()==0)
+            return "";
+        String drugString=drugs.get(0).getDrugType()+Float.toString(drugs.get(0).getDrugNum())+drugs.get(0).getDrugMagnitude()+Float.toString(drugs.get(0).getDrugPrice())+drugs.get(0).getDrugPriceMagnitude();
+        for(int i=1;i<drugs.size();i++)
+        {
+            drugString = drugString.concat("|"+drugs.get(i).getDrugType()+Float.toString(drugs.get(i).getDrugNum())+drugs.get(i).getDrugMagnitude()+Float.toString(drugs.get(i).getDrugPrice())+drugs.get(i).getDrugPriceMagnitude());
+        }
+        return  drugString;
+    }
+
+    public String showAverageDrugs(){
+        if(drugs==null||drugs.size()==0)
+            return "";
+        String drugString=drugs.get(0).getDrugType()+Float.toString(drugs.get(0).getDrugPrice()/drugs.get(0).getDrugNum())+drugs.get(0).getDrugPriceMagnitude()+"/"+drugs.get(0).getDrugMagnitude();
+        for(int i=1;i<drugs.size();i++)
+        {
+            drugString = drugString.concat("|"+drugs.get(i).getDrugType()+Float.toString(drugs.get(i).getDrugPrice()/drugs.get(i).getDrugNum())+drugs.get(i).getDrugPriceMagnitude()+"/"+drugs.get(i).getDrugMagnitude());
+        }
+        return  drugString;
+    }
 
     public String getArea() {
         return area;

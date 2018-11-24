@@ -13,23 +13,21 @@ import reader.ReadDocUtil;
 
 public class MatchCrime {
 	public static String regexPlace
-    	= "([公][诉][机][关][\\u0391-\\uFFE5&&[^，。]]+[院])|([（][0-9]+[）][浙][0-9]+[刑][初][\\u0391-\\uFFE5&&[^，。]&&[0-9]]+[号])"+
-    			"|([人][民][检][察][院][以][\\u0391-\\uFFE5|[0-9]|[（]|[）]]+[起][诉][书][指][控][\\u0391-\\uFFE5&&[^，。]]+)"+
-    			
-    			"|([二][\\u0391-\\uFFE5|[0-9]]+[年][\\u0391-\\uFFE5]+[日])"+
-    			"|([经][审][理][查][明][\\s\\S|.]+?([上][述][事][实]|[以][上][事][实]))";
+    	= "([公][诉][机][关][\\u0391-\\uFFE5&&[^，。]]+人民检察院)|([（〔(][0-9]+[）〕)][浙][0-9]+[刑][初][\\u0391-\\uFFE5[^，。\\s\\S][0-9]]+?号)"+
+    			"|([人][民][检][察][院][以][\\u0391-\\uFFE5|[0-9][（\\[][）\\]]]+[起][诉][书][指][控][\\u0391-\\uFFE5&&[^，。]]+)"+
+    			"|([二][\\u0391-\\uFFE5[0-9][ ]]+?[年][\\u0391-\\uFFE5]+[日])"+
+    			"|([经][审][理][查][明][\\s\\S.]+?([上][述][事][实]|[以][上][事][实]))";
 	
 	
 	private Pattern pattern = Pattern.compile(regexPlace);
 	public BeanCrime Match(String fileName)
 	{
-		
+
 		BeanCrime crime = new BeanCrime();
 		String text = ReadDocUtil.readWord(fileName);
 
 		Map<String,BeanPrisoner> prisonerMap=new MatchPrisoner().Match(text);
         List<BeanPrisoner> prisoners = new ArrayList<BeanPrisoner>();
-		
         Matcher matcher = pattern.matcher(text);
         while( matcher.find() )
         {
@@ -41,10 +39,10 @@ public class MatchCrime {
         	else if(matcher.group(2)!=null)  //案件号
         	{
         		crime.setSerial(matcher.group());
+        		System.out.println(matcher.group());
         	}
         	else if(matcher.group(3)!=null)
         	{
-				System.out.println(matcher.group(3));
 				String regexFirst="[被][告][人][\\u0391-\\uFFE5&&]+?([犯]|[、])";
 				Matcher firstMatcher = Pattern.compile(regexFirst).matcher(matcher.group(3));
 				if(firstMatcher.find())
@@ -58,12 +56,13 @@ public class MatchCrime {
         	{
         		if(matcher.group().length()<15)  //判决日期
         		{
+					System.out.println(matcher.group());
         			crime.setDate(parseDate(matcher.group()));
         		}
         	}
         	else if(matcher.group(5)!=null) //证据毒品信息
         	{
-        		System.out.println(matcher.group());
+        		//System.out.println(matcher.group());
         		crime.setDrugs(new MatchDrug().MatchDrugs(matcher.group()));
         	}
         }
@@ -92,8 +91,11 @@ public class MatchCrime {
 		dateString=dateString.replaceAll("八", "8");
 		dateString=dateString.replaceAll("九", "9");
 		dateString=dateString.replaceAll("O", "0");
+		dateString=dateString.replaceAll("〇", "0");
+		dateString=dateString.replaceAll("○", "0");
 		dateString=dateString.replaceAll("o", "0");
-		
+		dateString=dateString.replaceAll("\\s","");
+
 		try {
 			return dateFormat.parse(dateString);
 		} catch (Exception e) {
@@ -112,6 +114,6 @@ public class MatchCrime {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new MatchCrime().Match("E:\\学习\\java项目\\舟山\\（2016）浙0902刑初00262号.doc");
+		new MatchCrime().Match("E:\\学习\\java项目\\判决书\\2018年1-6月份毒品刑事案件一审\\舟山\\（2017）浙0902刑初450号.doc");
 	}
 }

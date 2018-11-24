@@ -20,6 +20,16 @@ public class BeanPrisoner {
     private String prisonTime;
     private List<BeanCase> cases;
 
+    public String showCrime()
+    {
+        String crimes="";
+        if(crime==null)
+            return crimes;
+        for(String c:crime)
+            crimes=crimes.concat(c);
+        return crimes;
+    }
+
     public String getName() {
         return name;
     }
