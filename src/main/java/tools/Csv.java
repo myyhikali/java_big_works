@@ -91,22 +91,7 @@ public class Csv {
 
 
     public static void main(String[] args) throws IOException {
-        String filepath = "C:\\Users\\Chars\\OneDrive\\文档\\大学工作与学习\\学习\\JAVA\\project\\舟山.csv";
-        Pair<String[], ArrayList<String[]>> data = read(filepath, true, "GBK");
-        String[] header = data.getKey();
-        ArrayList<String[]> list = data.getValue();
-
-        for (String a: header){
-            System.out.print(a + " ");
-        }
-        for (String[] a: list){
-            for (String b: a){
-                System.out.print(b + " ");
-            }
-            System.out.println();
-        }
-
-        writer("csv/舟山.csv", data, true, "UTF-8");
+        read("./tmp/csv/舟山.csv",true, "UTF-8");
 
     }
 }
