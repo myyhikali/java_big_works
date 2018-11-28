@@ -1,8 +1,9 @@
 package model;
 
 public class BeanDrug {
+
     private String drugType;
-    private String drugNum;
+    private float drugNum;
     private String drugMagnitude;
     private float drugPrice;
     private String drugPriceMagnitude;
@@ -15,11 +16,11 @@ public class BeanDrug {
         this.drugType = drugType;
     }
 
-    public String getDrugNum() {
+    public float getDrugNum() {
         return drugNum;
     }
 
-    public void setDrugNum(String drugNum) {
+    public void setDrugNum(float drugNum) {
         this.drugNum = drugNum;
     }
 

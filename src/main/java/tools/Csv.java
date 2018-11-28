@@ -45,6 +45,7 @@ public class Csv {
         return new Pair<String[], ArrayList<String[]>>(header, list);
     }
 
+
     public static Pair<String[], ArrayList<String[]>> preProcess(Pair<String[], ArrayList<String[]>> data){
         String[] header = data.getKey();
         ArrayList<String[]> list = data.getValue();
@@ -57,7 +58,7 @@ public class Csv {
         }
         for (int i = 0; i < list.size(); ++i){
             String[] newRecord = new String[header.length];
-            for (int j = 0; j < header.length; ++j){
+            for (int j = 0; j < list.get(i).length; ++j){
                 newRecord[j] = toSemiangle(list.get(i)[j]);
             }
             newList.add(newRecord);
@@ -78,6 +79,8 @@ public class Csv {
      */
 
     private static String toSemiangle(String src) {
+        if(src==null)
+            return "";
         char[] c = src.toCharArray();
         for (int index = 0; index < c.length; index++) {
             if (c[index] == 12288) {// 全角空格
@@ -92,6 +95,7 @@ public class Csv {
 
     public static void main(String[] args) throws IOException {
         read("./tmp/csv/舟山.csv",true, "UTF-8");
+
 
     }
 }

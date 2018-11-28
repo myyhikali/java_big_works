@@ -3,36 +3,45 @@ package model;
 import java.util.*;
 
 public class BeanCase {
-    private BeanPrisoner person1;
-    private BeanPrisoner person2;
-    private Date date;
+    private String person1;   //事件关联人物
+    private String person2;
+    private String time;
+    private String place;
     private String drugType;
-    private double money;
-    private double sum;
-    private String info;
+    private float num;
+    private String matitude;  //毒品数量量度
+    private String info;    //关联的信息
 
-    public BeanPrisoner getPerson1() {
+    public String getPerson1() {
         return person1;
     }
 
-    public void setPerson1(BeanPrisoner person1) {
+    public void setPerson1(String person1) {
         this.person1 = person1;
     }
 
-    public BeanPrisoner getPerson2() {
+    public String getPerson2() {
         return person2;
     }
 
-    public void setPerson2(BeanPrisoner person2) {
+    public void setPerson2(String person2) {
         this.person2 = person2;
     }
 
-    public Date getDate() {
-        return date;
+    public String getTime() {
+        return time;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
     }
 
     public String getDrugType() {
@@ -43,20 +52,20 @@ public class BeanCase {
         this.drugType = drugType;
     }
 
-    public double getMoney() {
-        return money;
+    public float getNum() {
+        return num;
     }
 
-    public void setMoney(double money) {
-        this.money = money;
+    public void setNum(float num) {
+        this.num = num;
     }
 
-    public double getSum() {
-        return sum;
+    public String getMatitude() {
+        return matitude;
     }
 
-    public void setSum(double sum) {
-        this.sum = sum;
+    public void setMatitude(String matitude) {
+        this.matitude = matitude;
     }
 
     public String getInfo() {

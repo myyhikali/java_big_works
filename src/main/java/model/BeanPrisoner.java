@@ -11,11 +11,25 @@ public class BeanPrisoner {
     private String nation;
     private String level;
     private String work;
+    private String idCard;
     private String place;
     private List<String> crime;
     private String penalty;
+    private float  penaltySum;
     private String prisonType;
+    private String prisonTime;
     private List<BeanCase> cases;
+    private BeanCrime beanCrime;
+
+    public String showCrime()
+    {
+        String crimes="";
+        if(crime==null)
+            return crimes;
+        for(String c:crime)
+            crimes=crimes.concat(c);
+        return crimes;
+    }
 
     public String getName() {
         return name;
@@ -73,14 +87,6 @@ public class BeanPrisoner {
         this.sex = sex;
     }
 
-    public String getPenalty() {
-        return penalty;
-    }
-
-    public void setPenalty(String penalty) {
-        this.penalty = penalty;
-    }
-
     public String getNation() {
         return nation;
     }
@@ -103,5 +109,45 @@ public class BeanPrisoner {
 
     public void setWork(String work) {
         this.work = work;
+    }
+
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
+    }
+
+    public float getPenaltySum() {
+        return penaltySum;
+    }
+
+    public void setPenaltySum(float penaltySum) {
+        this.penaltySum = penaltySum;
+    }
+
+    public String getPenalty() {
+        return penalty;
+    }
+
+    public void setPenalty(String penalty) {
+        this.penalty = penalty;
+    }
+
+    public String getPrisonTime() {
+        return prisonTime;
+    }
+
+    public void setPrisonTime(String prisonTime) {
+        this.prisonTime = prisonTime;
+    }
+
+    public BeanCrime getBeanCrime() {
+        return beanCrime;
+    }
+
+    public void setBeanCrime(BeanCrime beanCrime) {
+        this.beanCrime = beanCrime;
     }
 }
