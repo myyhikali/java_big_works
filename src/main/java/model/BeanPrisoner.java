@@ -19,6 +19,7 @@ public class BeanPrisoner {
     private String prisonType;
     private String prisonTime;
     private List<BeanCase> cases;
+    private BeanCrime beanCrime;
 
     public String showCrime()
     {
@@ -140,5 +141,13 @@ public class BeanPrisoner {
 
     public void setPrisonTime(String prisonTime) {
         this.prisonTime = prisonTime;
+    }
+
+    public BeanCrime getBeanCrime() {
+        return beanCrime;
+    }
+
+    public void setBeanCrime(BeanCrime beanCrime) {
+        this.beanCrime = beanCrime;
     }
 }

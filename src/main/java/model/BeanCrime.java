@@ -2,13 +2,14 @@ package model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class BeanCrime {
 
     private String area;
     private String serial;
     private String procuratorate;
-    private List<BeanPrisoner> prisoners;
+    private Map<String,BeanPrisoner> prisoners;
     private Date date;
     private List<BeanDrug> drugs;
     private BeanPrisoner firstPrisoner;
@@ -60,11 +61,11 @@ public class BeanCrime {
         this.procuratorate = procuratorate;
     }
 
-    public List<BeanPrisoner> getPrisoners() {
+    public Map<String, BeanPrisoner> getPrisoners() {
         return prisoners;
     }
 
-    public void setPrisoners(List<BeanPrisoner> prisoners) {
+    public void setPrisoners(Map<String, BeanPrisoner> prisoners) {
         this.prisoners = prisoners;
     }
 

@@ -14,9 +14,10 @@ import java.io.InputStream;
 
 public class ReadDocUtil {
 
-	public static String readWord(String fileName){
+	public static String readWord(String fileName){  //commons-collections4-4.2.jar poi-4.0.0.jar   poi-ooxml-4.0.0.jar  poi-scratchpad-4.0.0.jar
 
         File file = new File(fileName);
+
         if(file.getName().endsWith(".doc")){
             return readWord_2003(file);
         }
