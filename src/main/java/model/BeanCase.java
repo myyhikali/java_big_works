@@ -3,14 +3,14 @@ package model;
 import java.util.*;
 
 public class BeanCase {
-    private String person1;   //ÊÂ¼ş¹ØÁªÈËÎï
+    private String person1;   //äº‹ä»¶å…³è”äººç‰©
     private String person2;
     private String time;
     private String place;
     private String drugType;
     private float num;
-    private String matitude;  //¶¾Æ·ÊıÁ¿Á¿¶È
-    private String info;    //¹ØÁªµÄĞÅÏ¢
+    private String matitude;  //æ¯’å“æ•°é‡é‡åº¦
+    private String info;    //å…³è”çš„ä¿¡æ¯
 
     public String getPerson1() {
         return person1;

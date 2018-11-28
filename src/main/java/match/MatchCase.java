@@ -37,7 +37,7 @@ public class MatchCase {
 	{
         String[] testCase =text.split("。");
 
-        List<BeanCase> cases = new ArrayList<>();
+        List<BeanCase> cases = new ArrayList<BeanCase>();
 
         Segment standard = StandardTokenizer.SEGMENT.enableCustomDictionary(true).enablePlaceRecognize(true).enableOrganizationRecognize(true);
         CustomDictionary.insert("老毛","nr 4096");

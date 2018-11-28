@@ -22,7 +22,7 @@ public class ParseToRelationList {
     public static List<BeanCase> parseToRelation(String filePath)
     {
         ArrayList<String> filePaths=new ReadFilePath().getFiles(filePath);
-        List<BeanCase> cases = new ArrayList<>();
+        List<BeanCase> cases = new ArrayList<BeanCase>();
 
         for (String fileName : filePaths) {
             String text = ReadDocUtil.readWord(fileName);

@@ -32,7 +32,7 @@ public class MatchPrisoner {
 
         Matcher matcher = pattern.matcher(text);
         Matcher prisonerMatcher = infoPattern.matcher(text);
-        Map<String, BeanPrisoner> prisonerMap = new HashMap<>();
+        Map<String, BeanPrisoner> prisonerMap = new HashMap<String, BeanPrisoner>();
 
         while (prisonerMatcher.find()) {
             String matchString = prisonerMatcher.group();
