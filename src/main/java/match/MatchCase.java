@@ -40,9 +40,9 @@ public class MatchCase {
         List<BeanCase> cases = new ArrayList<>();
 
         Segment standard = StandardTokenizer.SEGMENT.enableCustomDictionary(true).enablePlaceRecognize(true).enableOrganizationRecognize(true);
-        CustomDictionary.insert("老毛","nr 4096");
-        CustomDictionary.insert("暂住处","n 4096");
-        CustomDictionary.insert("办公室","n 4096");
+//        CustomDictionary.insert("老毛","nr 4096");
+//        CustomDictionary.insert("暂住处","n 4096");
+//        CustomDictionary.insert("办公室","n 4096");
 
             //CRFLexicalAnalyzer analyzer = new CRFLexicalAnalyzer();
 

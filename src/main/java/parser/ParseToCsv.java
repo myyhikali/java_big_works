@@ -32,7 +32,10 @@ public class ParseToCsv {
         for (String fileName : filePaths) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日");
             BeanCrime tempCrime = new MatchCrime().Match(fileName);
-            prisonerMap.putAll(tempCrime.getPrisoners());    //合并 map
+
+            for(String name:tempCrime.getPrisoners().keySet())
+                if(!prisonerMap.containsKey(name))
+                    prisonerMap.put(name,tempCrime.getPrisoners().get(name));    //合并 map
 
             crimes.add(tempCrime);
             crimeList.add(new String[]{tempCrime.getSerial(), tempCrime.getProcuratorate(), tempCrime.getArea(), dateFormat.format(tempCrime.getDate()), Integer.toString(tempCrime.getPrisoners().size()),
@@ -41,16 +44,17 @@ public class ParseToCsv {
                     tempCrime.getFirstPrisoner().getLevel(), tempCrime.getFirstPrisoner().getWork(), tempCrime.getFirstPrisoner().getPlace(), tempCrime.getFirstPrisoner().showCrime(), tempCrime.getFirstPrisoner().getPrisonType(), tempCrime.getFirstPrisoner().getPrisonTime(),
                     tempCrime.getFirstPrisoner().getPenalty(), Float.toString(tempCrime.getFirstPrisoner().getPenaltySum()), tempCrime.showDrugs(), tempCrime.showAverageDrugs()});
         }
-
+        ParseToJson.ParseToJson(prisonerMap,ParseToRelationList.parseToRelation(filePath));
         try {
             writer("E://学习//java项目//Test//" + saveName + ".csv", new Pair<>(titles, crimeList), true, "GBK");
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public static void main(String args[]) {
-        ParseToCsv.parseToCsv("E://学习//java项目//判决书//2018年1-6月份毒品刑事案件一审//丽水", "丽水");
+        ParseToCsv.parseToCsv("E://学习//java项目//判决书//2018年1-6月份毒品刑事案件一审//舟山", "舟山");
     }
 
 }

@@ -16,7 +16,7 @@ public class Txt {
             e.printStackTrace();
         }
         PrintWriter pw = new PrintWriter(fw);
-        pw.format("UTF-8",null);
+        //pw.format("UTF-8",null);
         pw.print(text+" ");
         pw.flush();
         try {

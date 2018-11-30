@@ -15,11 +15,17 @@ import reader.ReadDocUtil;
 public class MatchCrime {
 	public static String regexPlace
     	= "([公][诉][机][关][\\u0391-\\uFFE5&&[^，。]]+人民检察院)|([（〔(][0-9]+[）〕)][浙][0-9]+[刑][初][\\u0391-\\uFFE5[^，。\\s\\S][0-9]]+?号)"+
-    			"|([以][\\u0391-\\uFFE5[0-9]（\\[）\\][ ]()[^。]]+[起][诉][决定]*[书][指][控][\\u0391-\\uFFE5&&[^，。]]+)"+
-    			"|([二][Ｏ〇oO一二三四五六七八九十[0-9][\\s][^。（\\n\\r]]+[年][一二三四五六七八九十[0-9][\\s][^。\\n\\r]]+[月][一二三四五六七八九十[0-9][\\s][^。\\n\\r]]+[日])"+
+    			"|([以][\\u0391-\\uFFE5[0-9]〔〕\\-（\\[）\\][ ]()&&[^。,]]+?[起][诉][决定]*[书][，]*[分别]*[指][控]被告人[\\u0391-\\uFFE5&&[^，。\\n\\r]]+)"+ //[^，。\n\r]
+    			"|([二][Ｏ〇oO一二三四五六七八九十[0-9][\\s][^。（\\n\\r]]+[年][一二三四五六七八九十[0-9][\\s][^。\\n\\r]]+[月][一二三四五六七八九十[0-9][ ]&&[^。\\n\\r]]+[日])"+
     			"|(经审理查明[\\s\\S.]+上述事实)"+
-				"|(经审理查明[\\s\\S.]+以上事实)";
+				"|(经审理查明[\\s\\S.]+以上事实)";//公诉机关指控  //人民检察院指控
 
+	public static String regexInfo="(经审理查明[\\s\\S.]+上述[\\u0391-\\uFFE5]*事实)" +
+			"|(经审理查明[\\s\\S.]+以上事实)"+
+			"|(公诉机关指控[\\s\\S.]+以上事实)"+
+			"|(公诉机关指控[\\s\\S.]+上述事实)"+
+			"|(人民检察院指控[\\s\\S.]+上述事实)"+
+			"|(人民检察院指控[\\s\\S.]+以上事实)";        //公诉机关指控  //人民检察院指控";
 	
 	private Pattern pattern = Pattern.compile(regexPlace);
 	public BeanCrime Match(String fileName)
@@ -30,6 +36,7 @@ public class MatchCrime {
 		Map<String,BeanPrisoner> prisonerMap=new MatchPrisoner().Match(text);
         List<BeanPrisoner> prisoners = new ArrayList<BeanPrisoner>();
         Matcher matcher = pattern.matcher(text);
+        Matcher infoMatcher = Pattern.compile(regexInfo).matcher(text);
 
         //System.out.println(text);
 
@@ -81,13 +88,12 @@ public class MatchCrime {
         			crime.setDate(parseDate(matcher.group()));
         		}
         	}
-        	else if(matcher.group(5)!=null||matcher.group(6)!=null) //证据毒品信息
-        	{
-        		//System.out.println(matcher.group());
-        		crime.setDrugs(new MatchDrug().MatchDrugs(matcher.group()));
-				//prisonerMap=new MatchCase().Match(prisonerMap, matcher.group());
-        	}
         }
+        while(infoMatcher.find())
+		{
+			//System.out.println(infoMatcher.group());
+			crime.setDrugs(new MatchDrug().MatchDrugs(infoMatcher.group()));
+		}
         if(prisonerMap.keySet().size()==1&&crime.getFirstPrisoner()==null)
         	for(String name:prisonerMap.keySet())
         		crime.setFirstPrisoner(prisonerMap.get(name));
@@ -121,7 +127,7 @@ public class MatchCrime {
 		dateString=dateString.replaceAll("〇", "0");
 		dateString=dateString.replaceAll("○", "0");
 		dateString=dateString.replaceAll("o", "0");
-		dateString=dateString.replaceAll(" ", "0");
+		dateString=dateString.replaceAll(" ", "");
 		dateString=dateString.replaceAll("\\s","");
 
 		try {

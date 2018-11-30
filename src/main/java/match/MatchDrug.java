@@ -20,7 +20,7 @@ public class MatchDrug {
 	public String regexPrice = "([\\d\\s.]+|[一二三四五六七八九十百千万]+)([元]|[人][民][币])";
 	public String regexPriceBak="([\\d\\s.]+|[一二三四五六七八九十百千万]+)(([美][元])|([欧][元])|([日][元])|([港][币])|([英][镑]))";
 	public String regexNum	= "([\\d\\s.]+|[一二三四五六七八九十百千万亿]+)([克]|[千][克]|[公][斤]|[斤]|[吨]|[毫][克]|[微][克]|g|kg|mg|ug|t)";
-	public String regexNumBak = "([\\d\\s.]+|[一二三四五六七八九十百千万亿]+)([粒]|([小][粒])|([小][包])|[包]|[袋]|([小][袋])|[块]|([小][块]))";
+	public String regexNumBak = "([\\d\\s.]+|[一二三四五六七八九十百千万亿]+)([粒]|([小][粒])|([小][包])|[包]|[袋]|([小][袋])|[块]|([小][块])|[个])";
 
 	public String regexDrugName="("+"".join("|", Drug)+")";
 
