@@ -19,6 +19,67 @@
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
+
+<style>
+
+    .link {
+        fill: none;
+        stroke: #666;
+        stroke-width: 1.5px;
+    }
+
+    #licensing {
+        fill: green;
+    }
+
+    .link.licensing {
+        stroke: green;
+    }
+
+    .link.resolved {
+        stroke-dasharray: 0, 2;
+    }
+
+    /*circle {*/
+    /*fill: #ccc;*/
+    /*stroke: #333;*/
+    /*stroke-width: 1.5px;*/
+    /*}*/
+
+    text {
+        font: 12px Microsoft YaHei;
+        pointer-events: none;
+        text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+    }
+
+    .linetext {
+        font-size: 12px;
+    }
+
+    .links line {
+        stroke: #999;
+        stroke-opacity: 0.6;
+    }
+
+    .nodes circle {
+        stroke: #fff;
+        stroke-width: 1.5px;
+    }
+    div.tooltip {
+        position: fixed;
+        text-align: center;
+        width: 60px;
+        height: 28px;
+        padding: 2px;
+        background: lightsteelblue;
+        border: 0px;
+        border-radius: 8px;
+        pointer-events: none;
+    }
+
+
+</style>
+
 <body>
 <div id="wrapper">
     <nav class="navbar-default navbar-static-side" role="navigation">
@@ -54,6 +115,9 @@
                 </li>
                 <li class="active">
                     <a href="d3.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">d3</span> </a>
+                </li>
+                <li>
+                    <a href="gragh_label.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">graghlabel</span> </a>
                 </li>
             </ul>
         </div>
@@ -243,8 +307,8 @@
                 for (let k = 0; k < links.length; ++k){
                     if(links[k].target === graph.nodes[j].id) {
                         if (!local_nodes.find(function(x) {
-                            return x.id === graph.nodes[j].id;
-                        }))
+                                return x.id === graph.nodes[j].id;
+                            }))
                             nodes.push(graph.nodes[j]);
                         // console.log(graph.nodes[j])
                     }

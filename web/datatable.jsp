@@ -63,6 +63,9 @@
                 <li>
                     <a href="d3.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">d3</span> </a>
                 </li>
+                <li >
+                    <a href="gragh_label.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">graghlabel</span> </a>
+                </li>
             </ul>
 
         </div>
@@ -170,7 +173,7 @@
                                         <td><%=tl.getFirstPrisoner().getLevel() %></td>
                                         <td><%=tl.getFirstPrisoner().getWork() %></td>
                                         <td><%=tl.getFirstPrisoner().getPlace() %></td>
-                                        <td><%=tl.getFirstPrisoner().showCrime()%></td>
+                                        <td><%=tl.getFirstPrisoner().getCrime()%></td>
                                         <td><%=tl.getFirstPrisoner().getPrisonType() %></td>
 
                                         <td><%=tl.getFirstPrisoner().getPrisonTime() %></td>
