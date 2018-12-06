@@ -27,7 +27,7 @@ penalty = []
 chinese_time = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"]
 
 for file_item in source_file:
-    file = pd.read_csv(file_item, engine='python', encoding='utf-8').values
+    file = pd.read_csv(file_item, engine='python', encoding='utf-8').fillna("n").values
     for row in file:
         if(row[4] == 1 and row[18] != None):
             # print(row)
@@ -38,7 +38,7 @@ for file_item in source_file:
                 # print(item)
                 detail = item.split("/")
 
-                if (detail[0] != 'nan'):
+                if (detail[0] != 'n'):
                     # print(detail[0])
                     drug = re.match(u"[K]?[\u4e00-\u9fa5]+", detail[0]).group()
                     # print(drugs)
@@ -47,8 +47,11 @@ for file_item in source_file:
 
                     find_float = lambda x: re.search("\d+(\.\d+)?", x).group()
                     # print(find_float(detail[1]))
-                    if(drug == "冰毒"):
+                    if(drug == "冰毒" or drug == "摇头丸"):
                         drug = "甲基苯丙胺"
+
+                    if(drug == "吗啡"):
+                        drug = "鸦片"
                     if weight.get(drug) == None:
                         weight[drug] = float(find_float(detail[1]))
                     else:
@@ -57,11 +60,11 @@ for file_item in source_file:
             if(weight):
                 sum = 0
                 time = 0
-                # print(file_item)
-                # print(row)
+                print(file_item)
+                print(row)
                 for single in row[15]:
                     # print(single)
-                    if (single == None):
+                    if (single == 'n'):
                         break
                     if (single == "年"):
                         sum += time
@@ -73,11 +76,19 @@ for file_item in source_file:
                         continue
                     elif(single == ' '):
                         break
-                    elif(single == '日'):
+                    elif(single == '日' or single == '天'):
                         break
                     elif(single == '零'):
                         break
+                    elif(single == '并' or single == '在' or single == '考'):
+                        break
+                    elif(single == ',' or single == '。'):
+                        break
+                    elif (single == '的' ):
+                        break
                     else:
+                        if(single == '两'):
+                            single = '二'
                         time = time + chinese_time.index(single) + 1
 
                 if(str(row[13]).__contains__("容留")):
@@ -90,10 +101,10 @@ for file_item in source_file:
                     weight["伤害"] = 1
                 if (str(row[13]).__contains__("运输")):
                     weight["运输"] = 1
-                # if (str(row[13]).__contains__("教唆")):
-                #     weight["教唆"] = 1
-                # if (str(row[13]).__contains__("种植")):
-                #     weight["种植"] = 1
+                if (str(row[13]).__contains__("教唆")):
+                    weight["教唆"] = 1
+                if (str(row[13]).__contains__("种植")):
+                    weight["种植"] = 1
                 penalty.append(sum)
                 total.append(weight)
 

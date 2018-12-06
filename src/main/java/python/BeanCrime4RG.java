@@ -10,6 +10,12 @@ public class BeanCrime4RG {
     private double accept;
     private double hold;
     private double transport;
+    private double Caffeine;
+    private double opium;
+
+//    translate = {"cyclohexanone": "K粉", "heroin": "海洛因", "methamphetamine": "甲基苯丙胺", "marijuana": "大麻"
+
+//    ,"hurt": "伤害", "produce": "制造", "accept": "容留", "hold": "持有", "transport": "运输", "opium": "鸦片", "Caffeine": "咖啡因"}
 
     @Override
     public String toString() {
@@ -23,6 +29,8 @@ public class BeanCrime4RG {
                 "容留=" + accept + ',' +
                 "持有=" + hold + ',' +
                 "运输=" + transport + ',' +
+                "咖啡因=" + Caffeine + "," +
+                "鸦片=" + opium + "," +
                 "}";
     }
 
@@ -96,5 +104,22 @@ public class BeanCrime4RG {
 
     public void setTransport(double transport) {
         this.transport = transport;
+    }
+
+
+    public double getCaffeine() {
+        return Caffeine;
+    }
+
+    public void setCaffeine(double caffeine) {
+        Caffeine = caffeine;
+    }
+
+    public double getOpium() {
+        return opium;
+    }
+
+    public void setOpium(double opium) {
+        this.opium = opium;
     }
 }

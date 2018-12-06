@@ -61,6 +61,10 @@ public class PythonCSV {
 
     private static String createJSON(String data) throws JsonProcessingException {
 
+        //    translate = {"cyclohexanone": "K粉", "heroin": "海洛因", "methamphetamine": "甲基苯丙胺", "marijuana": "大麻"
+
+//    ,"hurt": "伤害", "produce": "制造", "accept": "容留", "hold": "持有", "transport": "运输", "opium": "鸦片", "Caffeine": "咖啡因"}
+
         BeanCrime4RG crime4RG = new BeanCrime4RG();
         if(data.contains("容留"))
             crime4RG.setAccept(1);
@@ -91,8 +95,10 @@ public class PythonCSV {
         drugMap.put("K粉", 0.0);
         drugMap.put("海洛英", 0.0);
         drugMap.put("大麻", 0.0);
+        drugMap.put("鸦片", 0.0);
+        drugMap.put("咖啡因", 0.0);
 
-        String[] drugs = {"冰毒", "甲基苯丙胺", "K粉", "海洛英", "大麻"};
+        String[] drugs = {"冰毒", "甲基苯丙胺", "K粉", "海洛英", "大麻", "鸦片", "咖啡因", "摇头丸", "吗啡"};
 
         for(int i = 0; i < drugs.length; ++i) {
             String drug = drugs[i];
@@ -106,8 +112,10 @@ public class PythonCSV {
 //                System.out.println(matcher.group(2));
                         weight *= 1000;
 
-                    if(drug.equals("冰毒"))
+                    if(drug.equals("冰毒") || drug.equals("摇头丸"))
                         drug = "甲基苯丙胺";
+                    if(drug.equals("吗啡") )
+                        drug = "鸦片";
 
                     if(drugMap.containsKey(drug)){
                         drugMap.put(drug, drugMap.get(drug) + weight);
@@ -124,6 +132,10 @@ public class PythonCSV {
         crime4RG.setHeroin(drugMap.get("海洛英"));
         crime4RG.setMethamphetamine(drugMap.get("甲基苯丙胺"));
         crime4RG.setMarijuana(drugMap.get("大麻"));
+        crime4RG.setCaffeine(drugMap.get("咖啡因"));
+        crime4RG.setMarijuana(drugMap.get("鸦片"));
+
+
 
 
         /*

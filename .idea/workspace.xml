@@ -7,158 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="763a06cb-7f76-41f4-970c-942c234a04f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/python/BeanCrime4RG.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/python/Console.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/python/PythonCSV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tmp/python/data_covert.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tmp/python/ml.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jackson-annotations-2.9.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jackson-core-2.9.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jackson-databind-2.9.7.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/META-INF/javabigwork.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/csv/Hello.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/csv/demo.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/csv/嘉兴.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/csv/舟山.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/match/MatchCase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/match/MatchCrime.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/match/MatchDrug.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/match/MatchPrisoner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/model/BeanCase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/model/BeanCrime.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/model/BeanDrug.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/model/BeanPrisoner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/parser/ParseNum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/parser/ParseToCsv.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/parser/ParseToRelationList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/reader/ReadDocUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/reader/ReadFilePath.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/tools/Csv.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/tools/Format.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/tools/Txt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/lib/commons-codec-1.11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/lib/commons-collections4-4.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/lib/commons-compress-1.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/lib/curvesapi-1.05.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/lib/poi-4.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/lib/poi-ooxml-4.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/lib/poi-ooxml-schemas-4.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/lib/poi-scratchpad-4.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/lib/xmlbeans-3.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/answer.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/animate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/datatables.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/fileinput.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/congruent_pentagon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/header-profile-skin-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/header-profile-skin-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/header-profile-skin-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/header-profile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/otis_redding.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/shattered.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/patterns/triangular.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/d3.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/data/tagCloud.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/data/温州.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/datatable.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/css/font-awesome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/animated.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/bordered-pulled.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/core.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/fixed-width.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/font-awesome.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/icons.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/larger.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/list.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/mixins.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/path.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/rotated-flipped.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/screen-reader.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/stacked.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/less/variables.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/_animated.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/_bordered-pulled.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/_core.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/_fixed-width.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/_icons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/_larger.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/_list.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/_path.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/_rotated-flipped.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/_screen-reader.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/_stacked.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/font-awesome/scss/font-awesome.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/gragh_label.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/graph_flot.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/homepage.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/img/profile_small.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/img/龙猫.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/ind.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/d3/d3-viz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/d3/d3.layout.cloud.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/fileinput.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/fileinput.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/inspinia.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/jquery-3.1.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/dataTables/datatables.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/flot/curvedLines.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/flot/excanvas.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/flot/jquery.flot.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/flot/jquery.flot.pie.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/flot/jquery.flot.resize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/flot/jquery.flot.spline.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/flot/jquery.flot.symbol.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/flot/jquery.flot.time.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/flot/jquery.flot.tooltip.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/metisMenu/jquery.metisMenu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/pace/pace.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/slimscroll/jquery.slimscroll.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/plugins/slimscroll/jquery.slimscroll.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/js/zh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/t1.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parser/ParseToCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/ParseToCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/csv/Hello.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/csv/demo.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/csv/嘉兴.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/csv/舟山.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/python/BeanCrime4RG.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/python/BeanCrime4RG.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/python/PythonCSV.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/python/PythonCSV.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/python/data_covert.py" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/python/data_covert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/python/ml.py" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/WEB-INF/classes/python/ml.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/answer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/javabigwork_war_exploded/answer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/python/BeanCrime4RG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/python/BeanCrime4RG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/python/PythonCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/python/PythonCSV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/python/data_covert.py" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/python/data_covert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/python/ml.py" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/python/ml.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/answer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/answer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/d3.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/d3.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -173,11 +32,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/python/Console.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="77" column="82" selection-start-line="77" selection-start-column="82" selection-end-line="77" selection-end-column="82" />
+            <state relative-caret-position="228">
+              <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tmp/python/data_covert.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tmp/python/ml.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
             </state>
           </provider>
         </entry>
@@ -194,26 +71,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/d3.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-228">
+            <state relative-caret-position="19">
               <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/python/PythonCSV.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+            <state relative-caret-position="266">
+              <caret line="47" column="50" lean-forward="true" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -222,10 +90,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/answer.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-533">
-              <caret line="117" column="57" selection-start-line="117" selection-start-column="57" selection-end-line="117" selection-end-column="57" />
+            <state relative-caret-position="-988">
+              <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -300,7 +177,6 @@
         <option value="$PROJECT_DIR$/src/main/java/regression/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/python/Test.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/python/BeanCrime4RG.java" />
         <option value="$PROJECT_DIR$/tmp/python/test.py" />
         <option value="$PROJECT_DIR$/web/datatable.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/test.jsp" />
@@ -310,13 +186,14 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/../apache-tomcat-9.0.13/conf/server.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Test.java" />
-        <option value="$PROJECT_DIR$/web/answer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/python/Console.java" />
-        <option value="$PROJECT_DIR$/src/main/java/python/PythonCSV.java" />
         <option value="$PROJECT_DIR$/web/tmp/python/data_covert.py" />
         <option value="$PROJECT_DIR$/web/tmp/python/ml.py" />
-        <option value="$PROJECT_DIR$/tmp/python/data_covert.py" />
+        <option value="$PROJECT_DIR$/web/answer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/python/BeanCrime4RG.java" />
+        <option value="$PROJECT_DIR$/src/main/java/python/Console.java" />
+        <option value="$PROJECT_DIR$/src/main/java/python/PythonCSV.java" />
         <option value="$PROJECT_DIR$/tmp/python/ml.py" />
+        <option value="$PROJECT_DIR$/tmp/python/data_covert.py" />
       </list>
     </option>
   </component>
@@ -350,10 +227,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="816" />
-    <option name="y" value="148" />
-    <option name="width" value="947" />
-    <option name="height" value="1090" />
+    <option name="x" value="815" />
+    <option name="y" value="147" />
+    <option name="width" value="948" />
+    <option name="height" value="1091" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -612,7 +489,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -634,24 +510,65 @@
             <path>
               <item name="javabigwork" type="b2602c69:ProjectViewProjectNode" />
               <item name="javabigwork" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javabigwork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javabigwork" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javabigwork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javabigwork" type="462c0819:PsiDirectoryNode" />
               <item name="tmp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javabigwork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javabigwork" type="462c0819:PsiDirectoryNode" />
+              <item name="tmp" type="462c0819:PsiDirectoryNode" />
+              <item name="csv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javabigwork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javabigwork" type="462c0819:PsiDirectoryNode" />
+              <item name="tmp" type="462c0819:PsiDirectoryNode" />
+              <item name="csv" type="462c0819:PsiDirectoryNode" />
+              <item name="dest_csv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javabigwork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javabigwork" type="462c0819:PsiDirectoryNode" />
+              <item name="tmp" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="javabigwork" type="b2602c69:ProjectViewProjectNode" />
               <item name="javabigwork" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="javabigwork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javabigwork" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544085570929" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544108986032" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jackson-databind-2.9.7.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -662,15 +579,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\source\javabigwork\web\data" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\source\javabigwork\tmp\csv\source_csv" />
       <recent name="C:\source\javabigwork\web" />
       <recent name="C:\source\javabigwork\web\WEB-INF\lib" />
       <recent name="C:\source\javabigwork\lib" />
       <recent name="C:\source\javabigwork\tmp\csv\dest_csv" />
-      <recent name="C:\source\javabigwork\tmp\python" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\source\javabigwork\web\data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -838,10 +755,10 @@
       <item itemvalue="Application.ReadFilePath" />
       <item itemvalue="Application.ParseToCsv" />
       <item itemvalue="Application.Console" />
+      <item itemvalue="Application.Test" />
       <item itemvalue="JavaScript Debug.answer.jsp" />
       <item itemvalue="Tomcat Server.index.jsp" />
       <item itemvalue="Tomcat Server.answer.jsp" />
-      <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
@@ -887,12 +804,13 @@
       <workItem from="1543902925099" duration="228000" />
       <workItem from="1543903436464" duration="42526000" />
       <workItem from="1544074553330" duration="1666000" />
-      <workItem from="1544076626922" duration="7385000" />
+      <workItem from="1544076626922" duration="8883000" />
+      <workItem from="1544101278139" duration="5204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="272792000" />
+    <option name="totallyTimeSpent" value="279494000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -906,7 +824,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1916" height="1045" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17295259" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13146552" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -914,15 +832,16 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Thumbnails" weight="0.3295838" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295838" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3239595" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3239595" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3982002" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295838" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3295838" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.34195724" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5035852" side_tool="true" weight="0.32952183" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49641478" weight="0.32845894" />
@@ -980,21 +899,6 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/data/tagCloud.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1881" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/gragh_label.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="93" column="27" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
-          <folding>
-            <element signature="n#script#8;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/regression/test.py" />
     <entry file="file://$PROJECT_DIR$/src/main/java/regression/FirstJavaScript.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/match/MatchDrug.java">
@@ -1131,16 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/csv/dest_csv/data.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" rowLines="3" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tmp/csv/dest_csv/result.csv">
       <provider selected="true" editor-type-id="csv-text-editor">
         <state relative-caret-position="361">
@@ -1177,13 +1071,6 @@
     <entry file="file://$PROJECT_DIR$/web/test.xhtml" />
     <entry file="file://$PROJECT_DIR$/web/test.jsp" />
     <entry file="file://$PROJECT_DIR$/src/main/java/python/Welcome.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/python/BeanCrime4RG.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="912">
@@ -1198,23 +1085,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/tmp/csv/dest_csv/data.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="494">
-          <caret line="74" column="15" selection-start-line="74" selection-start-column="15" selection-end-line="74" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/tmp/csv/dest_csv/data.csv" />
     <entry file="file://$PROJECT_DIR$/web/datatable.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -1222,13 +1093,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/answer.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-533">
-          <caret line="117" column="57" selection-start-line="117" selection-start-column="57" selection-end-line="117" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/tmp/python/data_covert.py" />
+    <entry file="file://$PROJECT_DIR$/web/tmp/python/ml.py" />
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1236,10 +1102,83 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/csv/source_csv/source_csv/丽水UTF-8.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/csv/source_csv/丽水17.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/answer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-988">
+          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/python/BeanCrime4RG.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#2581#2582#0" expanded="true" />
+            <element signature="e#2612#2613#0" expanded="true" />
+            <element signature="e#2660#2661#0" expanded="true" />
+            <element signature="e#2695#2696#0" expanded="true" />
+            <element signature="e#2727#2728#0" expanded="true" />
+            <element signature="e#2755#2756#0" expanded="true" />
+            <element signature="e#2797#2798#0" expanded="true" />
+            <element signature="e#2831#2832#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/python/Console.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/d3.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
+        <state relative-caret-position="19">
           <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/csv/dest_csv/data.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state>
+          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/python/PythonCSV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="47" column="50" lean-forward="true" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1250,51 +1189,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/python/Console.java">
+    <entry file="file://$PROJECT_DIR$/tmp/python/ml.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="77" column="82" selection-start-line="77" selection-start-column="82" selection-end-line="77" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="152">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tmp/python/data_covert.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="84" column="53" lean-forward="true" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/tmp/python/data_covert.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="88" column="53" lean-forward="true" selection-end-line="106" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/python/ml.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/tmp/python/ml.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="26" column="51" selection-end-line="46" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/python/PythonCSV.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="437">
+          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
         </state>
       </provider>
     </entry>
