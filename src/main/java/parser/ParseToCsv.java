@@ -43,7 +43,7 @@ public class ParseToCsv {
         }
 
         try {
-            writer("E://学习//java项目//Test//" + saveName + ".csv", new Pair<>(titles, crimeList), true, "GBK");
+            writer("E://学习//java项目//Console//" + saveName + ".csv", new Pair<>(titles, crimeList), true, "GBK");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -306,7 +306,7 @@
         ['京东', '济南', 368, 354]
     ];
 
-    let g =[chart.append("g").attr("transform","translate(300,70)")];
+    let g =[chart.append("g").attr("transform","translate(300,100)")];
 
     chart.append("text").attr("x", 400).attr("y",50)
         .attr("class","vbp-header").attr('font-size', '14px').attr('font-weight', '700').text("目标出货量");

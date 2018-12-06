@@ -1,4 +1,7 @@
+<%@ page import="python.Console" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.fasterxml.jackson.databind.ObjectMapper.*" %>
+<%@ page import="com.fasterxml.jackson.core.JsonProcessingException.*" %>
 <!DOCTYPE html>
 <html>
 
@@ -83,19 +86,49 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div  class="input-group">
-                        <input type="text" class="form-control" id="editor" placeholder="请输入问题">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button" id="myButton" onclick="massage()">
+                        <%--<input type="text" class="form-control" id="editor" placeholder="请输入问题">--%>
+                        <%--<span class="input-group-btn">--%>
+                            <%--<button class="btn btn-primary" type="button" id="myButton" onclick="massage()">--%>
+                                <%--确认--%>
+                            <%--</button>--%>
+
+                        <%--</span>--%>
+                        <form method="post" action="answer.do">
+                            <input type="text" class="form-control" id="editor" name='editor' placeholder="请输入问题">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit" id="myButton">
                                 确认
-                            </button>
-                        </span>
+                                </button>
+                            </span>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6">
                     <div>
-                        <textarea class="form-control" id="output" rows="20"></textarea>
+                        <textarea class="form-control" id="output" name='output' rows="20">
+                        </textarea>
+                        <script>
+
+                            var searchURL = decodeURI(window.location.search);
+                            searchURL = searchURL.substring(1, searchURL.length);
+                            // console.log(searchURL);
+                            if(searchURL.indexOf("&") !== -1) {
+                                var parmas = searchURL.split("&");
+                                var targetPageId;
+                                if (parmas[0]) {
+                                    console.log(parmas[0]);
+                                    targetPageId = parmas[0].split("=")[1];
+                                    document.getElementById("editor").value = targetPageId;
+                                }
+                                // console.log(targetPageId);
+                                if (parmas[1])
+                                    console.log(parmas[1]);
+                                targetPageId = parmas[1].split("=")[1];
+                                document.getElementById("output").innerText = targetPageId;
+                            }
+                        </script>
                     </div>
                 </div>
 
@@ -103,6 +136,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 <!-- 主要的脚本 -->
 <script src="js/jquery-3.1.1.min.js"></script>
@@ -118,10 +154,15 @@
         //var content = document.getElementById("txt");
         //alert(content.value);
         function change() {
-            document.getElementById("output").value=document.getElementById("editor").value;
+            // document.getElementById("output").value=document.getElementById("editor").value;
+            // console.log(document.getElementById("editor").value)
+
         }
         change();
+
     }
+
 </script>
+
 </body>
 </html>
