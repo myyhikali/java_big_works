@@ -1,5 +1,6 @@
 package match;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -14,12 +15,18 @@ import reader.ReadDocUtil;
 
 public class MatchCrime {
 	public static String regexPlace
-    	= "([公][诉][机][关][\\u0391-\\uFFE5&&[^，。]]+人民检察院)|([（〔(][0-9]+[）〕)][浙][0-9]+[刑][初][\\u0391-\\uFFE5[^，。\\s\\S][0-9]]+?号)"+
-    			"|([以][\\u0391-\\uFFE5[0-9]（\\[）\\][ ]()[^。]]+[起][诉][决定]*[书][指][控][\\u0391-\\uFFE5&&[^，。]]+)"+
-    			"|([二][Ｏ〇oO一二三四五六七八九十[0-9][\\s][^。（\\n\\r]]+[年][一二三四五六七八九十[0-9][\\s][^。\\n\\r]]+[月][一二三四五六七八九十[0-9][\\s][^。\\n\\r]]+[日])"+
-    			"|(经审理查明[\\s\\S.]+上述事实)"+
-				"|(经审理查明[\\s\\S.]+以上事实)";
+    	= "([公][诉][机][关][\\u0391-\\uFFE5&&[^，。]]+人民检察院)" +
+				"|([（〔(][0-9]+[）〕)][浙][0-9]+[刑][初][\\u0391-\\uFFE5[^，。\\s\\S][0-9]]+?号)"+
+    			"|([以][\\u0391-\\uFFE5[0-9]〔〕\\-（\\[）\\][ ]()&&[^。,]]+?[起][诉][决定]*[书][，]*[分别]*[指][控]被告人[\\u0391-\\uFFE5·&&[^，。\\n\\r]]+)"+ //[^，。\n\r]
+    			"|([二][Ｏ〇oO一二三四五六七八九十[0-9][\\s][^;,，。（\\n\\r]]+[年][一二三四五六七八九十[0-9][\\s][^。\\n\\r]]+[月][一二三四五六七八九十[0-9][ ]&&[^。\\n\\r]]+[日]?)"+
+				"|([2][Ｏ〇oO一二三四五六七八九十[0-9][\\s][^;,，。（\\n\\r]]+[年][一二三四五六七八九十[0-9][\\s][^。\\n\\r]]+[月][一二三四五六七八九十[0-9][ ]&&[^。\\n\\r]]+[日]?)";
 
+	public static String regexInfo="(经审理查明[\\s\\S.]+上述[\\u0391-\\uFFE5]*事实)" +
+			"|(经审理查明[\\s\\S.]+以上事实)"+
+			"|(公诉机关指控[\\s\\S.]+以上事实)"+
+			"|(公诉机关指控[\\s\\S.]+上述事实)"+
+			"|(人民检察院指控[\\s\\S.]+上述事实)"+
+			"|(人民检察院指控[\\s\\S.]+以上事实)";        //公诉机关指控  //人民检察院指控";
 	
 	private Pattern pattern = Pattern.compile(regexPlace);
 	public BeanCrime Match(String fileName)
@@ -27,11 +34,11 @@ public class MatchCrime {
 		BeanCrime crime = new BeanCrime();
 		String text = ReadDocUtil.readWord(fileName);
 
+		System.out.println(text);
 		Map<String,BeanPrisoner> prisonerMap=new MatchPrisoner().Match(text);
         List<BeanPrisoner> prisoners = new ArrayList<BeanPrisoner>();
         Matcher matcher = pattern.matcher(text);
-
-        //System.out.println(text);
+        Matcher infoMatcher = Pattern.compile(regexInfo).matcher(text);
 
         while( matcher.find() )
         {
@@ -48,9 +55,9 @@ public class MatchCrime {
         	else if(matcher.group(3)!=null)   //第一被告
         	{
         		System.out.println(matcher.group());
-				String regexFirst="[被][告][人][\\u0391-\\uFFE5&&[^\\n\\r]]*?([犯]|[、])";
+				String regexFirst="[被][告][人][\\u0391-\\uFFE5·&&[^\\n\\r]]*?([犯]|[、])";
 				String firstName="";
-				Matcher firstMatcher = Pattern.compile(regexFirst).matcher(matcher.group(3));
+				Matcher firstMatcher = Pattern.compile(regexFirst).matcher(matcher.group());
 				if(firstMatcher.find())
 				{
 					firstName = firstMatcher.group();
@@ -68,12 +75,13 @@ public class MatchCrime {
 							}
 						}
 					}
-
 				}
+				else
+					continue;
 
 				crime.setFirstPrisoner(prisonerMap.get(firstName));
         	}  
-        	else if(matcher.group(4)!=null) //判决日期
+        	else if(matcher.group(4)!=null||matcher.group(5)!=null) //判决日期
         	{
         		if(matcher.group().length()<18)  //判决日期
         		{
@@ -81,13 +89,14 @@ public class MatchCrime {
         			crime.setDate(parseDate(matcher.group()));
         		}
         	}
-        	else if(matcher.group(5)!=null||matcher.group(6)!=null) //证据毒品信息
-        	{
-        		//System.out.println(matcher.group());
-        		crime.setDrugs(new MatchDrug().MatchDrugs(matcher.group()));
-				//prisonerMap=new MatchCase().Match(prisonerMap, matcher.group());
-        	}
         }
+        while(infoMatcher.find())
+		{
+			//System.out.println(infoMatcher.group());
+			crime.setDrugsList(new MatchDrug().MatchDrugs(infoMatcher.group()));
+		}
+		if(prisonerMap.keySet().size()==0)
+			return null;
         if(prisonerMap.keySet().size()==1&&crime.getFirstPrisoner()==null)
         	for(String name:prisonerMap.keySet())
         		crime.setFirstPrisoner(prisonerMap.get(name));
@@ -121,13 +130,19 @@ public class MatchCrime {
 		dateString=dateString.replaceAll("〇", "0");
 		dateString=dateString.replaceAll("○", "0");
 		dateString=dateString.replaceAll("o", "0");
-		dateString=dateString.replaceAll(" ", "0");
+		dateString=dateString.replaceAll(" ", "");
 		dateString=dateString.replaceAll("\\s","");
 
 		try {
+			//System.out.println(dateString);
 			return dateFormat.parse(dateString);
 		} catch (Exception e) {
-			return null;
+			SimpleDateFormat bakDataFormat= new SimpleDateFormat("yyyy年M月d日");
+			try {
+				return dateFormat.parse(dateString);
+			} catch (ParseException e1) {
+				return new Date();
+			}
 		}
 		
 	}

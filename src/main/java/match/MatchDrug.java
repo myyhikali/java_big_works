@@ -1,12 +1,10 @@
 package match;
 
+import java.util.*;
 import java.util.regex.Pattern;
 
 import model.BeanDrug;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.regex.*;
 import parser.ParseNum;
 
@@ -20,12 +18,12 @@ public class MatchDrug {
 	public String regexPrice = "([\\d\\s.]+|[一二三四五六七八九十百千万]+)([元]|[人][民][币])";
 	public String regexPriceBak="([\\d\\s.]+|[一二三四五六七八九十百千万]+)(([美][元])|([欧][元])|([日][元])|([港][币])|([英][镑]))";
 	public String regexNum	= "([\\d\\s.]+|[一二三四五六七八九十百千万亿]+)([克]|[千][克]|[公][斤]|[斤]|[吨]|[毫][克]|[微][克]|g|kg|mg|ug|t)";
-	public String regexNumBak = "([\\d\\s.]+|[一二三四五六七八九十百千万亿]+)([粒]|([小][粒])|([小][包])|[包]|[袋]|([小][袋])|[块]|([小][块]))";
+	public String regexNumBak = "([\\d\\s.]+|[一二三四五六七八九十百千万亿]+)([粒]|([小][粒])|([小][包])|[包]|[袋]|([小][袋])|[块]|([小][块])|[个])";
 
-	public String regexDrugName="("+"".join("|", Drug)+")";
+	private String regexDrugName="("+"".join("|", Drug)+")";
 
 
-	public List<BeanDrug> drugList=new ArrayList<BeanDrug>();
+	public List<BeanDrug> drugSet=new ArrayList<>();
 	public List<BeanDrug> MatchDrugs(String text)
 	{
 		String [] sentences=text.split("[。；;]");
@@ -48,7 +46,6 @@ public class MatchDrug {
 				if(drugNameMatcher.find()) {
 					drugNameFlag = true;
 					drugName = drugNameMatcher.group();
-
 				}
 			}
 
@@ -81,9 +78,10 @@ public class MatchDrug {
 						String []drugs2={drugNumMatcher.group(1),drugNumMatcher.group(2)};
 						drugNumberMatch.add(drugs2);
 					}
-					for(int i=0;i<drugNumberMatch.size();i++) {
-						drugNumberStack.add(drugNumberMatch.get(i));
-					}
+					drugNumberStack.addAll(drugNumberMatch);
+//					for(int i=0;i<drugNumberMatch.size();i++) {
+//						drugNumberStack.add(drugNumberMatch.get(i));
+//					}
 				}
 				else {
 					Pattern patternNumBak = Pattern.compile(regexNumBak);
@@ -105,7 +103,7 @@ public class MatchDrug {
 					beanDrug.setDrugPrice(drugPrice);
 					beanDrug.setDrugMagnitude(drugNumber[1]);
 					beanDrug.setDrugNum(covertNum(drugNumber[0]));
-					drugList.add(beanDrug);
+					drugSet.add(beanDrug);
 
 					drugNameFlag = false;
 					drugName ="";
@@ -118,11 +116,11 @@ public class MatchDrug {
 					beanDrug.setDrugPrice(drugPrice);
 					beanDrug.setDrugNum(0);
 					beanDrug.setDrugType(drugName);
-					drugList.add(beanDrug);
+					drugSet.add(beanDrug);
 				}
 			}
 		}
-		return drugList;
+		return drugSet;
 
 	}
 	public static void main(String[] args) {

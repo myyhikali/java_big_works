@@ -3,6 +3,7 @@ package model;
 import java.util.*;
 
 public class BeanCase {
+    private  int caseid;
     private String person1;   //事件关联人物
     private String person2;
     private String time;
@@ -11,6 +12,7 @@ public class BeanCase {
     private float num;
     private String matitude;  //毒品数量量度
     private String info;    //关联的信息
+
 
     public String getPerson1() {
         return person1;
@@ -76,4 +78,12 @@ public class BeanCase {
         this.info = info;
     }
 
+
+    public int getCaseid() {
+        return caseid;
+    }
+
+    public void setCaseid(int caseid) {
+        this.caseid = caseid;
+    }
 }

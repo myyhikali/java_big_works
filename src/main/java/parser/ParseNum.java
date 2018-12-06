@@ -6,12 +6,13 @@ public class ParseNum {
         int temp = 1;//存放一个单位的数字如：十万
         int count = 0;//判断是否有chArr
         char[] cnArr = new char[]{'一','二','三','四','五','六','七','八','九'};
+        char[] nArr = new char[]{'1','2','3','4','5','6','7','8','9'};
         char[] chArr = new char[]{'十','百','千','万','亿'};
         for (int i = 0; i < chineseNumber.length(); i++) {
             boolean b = true;//判断是否是chArr
             char c = chineseNumber.charAt(i);
             for (int j = 0; j < cnArr.length; j++) {//非单位，即数字
-                if (c == cnArr[j]) {
+                if (c == cnArr[j]||c == nArr[j]) {
                     if(0 != count){//添加下一个单位之前，先把上一个单位值添加到结果中
                         result += temp;
                         temp = 1;
@@ -57,7 +58,6 @@ public class ParseNum {
     }
     public static float covertNum(String Num)
     {
-        float returnNum = 0;
         try {
             return Float.parseFloat(Num);
         } catch (Exception e) {
