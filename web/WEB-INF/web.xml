@@ -12,4 +12,15 @@
         <servlet-name>javaBigProject</servlet-name>
         <url-pattern>/answer.do</url-pattern>
     </servlet-mapping>
+         
+    <!--文件上传注册-->
+    <servlet>
+        <servlet-name>UploadHandleServlet</servlet-name>
+        <servlet-class>fileinput.UploadHandleServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UploadHandleServlet</servlet-name>
+        <url-pattern>/servlet/UploadHandleServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
