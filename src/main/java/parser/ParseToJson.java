@@ -68,7 +68,7 @@ public class ParseToJson {
         }
         String text="{".concat(nodes).concat("],").concat(links).concat("]}");
 
-        Txt.WriteDictionary(text,"E://学习//java项目//Test//"+saveName+".json",false,"UTF-8");
+        Txt.WriteDictionary(text,savePath+saveName+".json",false,"UTF-8");
     }
 
 }
