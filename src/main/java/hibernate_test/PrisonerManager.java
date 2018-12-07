@@ -1,9 +1,11 @@
 package hibernate_test;
 
 import model.BeanPrisoner;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+//import org.hibernate.query.Query;
+//import org.springframework.context.annotation.Bean;
 
 import java.io.IOException;
 import java.util.*;
@@ -26,7 +28,9 @@ public class PrisonerManager {
             Session session=HibernateUtil.getSession();
             session.beginTransaction();
             String hql="From BeanPrisoner";
-            org.hibernate.query.Query qry = session.createQuery(hql);
+
+            org.hibernate.Query qry = session.createQuery(hql);
+
             list=qry.list();
             session.getTransaction().commit();
             session.close();
@@ -39,17 +43,21 @@ public class PrisonerManager {
     public static Map<String,Integer> loadPrisonersAge() throws BaseException {
         Map<String,Integer> map=new HashMap<>() ;
         List<BeanPrisoner> list=new ArrayList<>();
+
         map.put("20岁以下", 0);
         map.put("20~30岁", 0);
         map.put("30~40岁", 0);
         map.put("40~50岁", 0);
         map.put("50~60岁", 0);
         map.put("60岁以上", 0);
+
         try{
             Session session=HibernateUtil.getSession();
             session.beginTransaction();
             String hql="From BeanPrisoner";
-            org.hibernate.query.Query qry = session.createQuery(hql);
+
+            org.hibernate.Query qry = session.createQuery(hql);
+
             list=qry.list();
             session.getTransaction().commit();
             session.close();
@@ -64,6 +72,7 @@ public class PrisonerManager {
                 calendar_past.setTime(prisoner.getBirth());
                 int age=calendar_now.get(Calendar.YEAR)-calendar_past.get(Calendar.YEAR);
                 if(age<20){
+
                    value= map.get("20岁以下");
                    map.put("20岁以下",++value );
                 }
@@ -86,6 +95,7 @@ public class PrisonerManager {
                 else {
                     value= map.get("60岁以上");
                     map.put("60岁以上",++value );
+
                 }
             }
         }
@@ -96,7 +106,9 @@ public class PrisonerManager {
     }
     public BeanPrisoner hasPrisoner(String name) throws  BaseException{
         Session session = HibernateUtil.getSession();
-        Query qry = session.createQuery("from BeanPrisoner where name = :Name");
+
+        Query qry = (Query) session.createQuery("from BeanPrisoner where name = :Name");
+
         qry.setString("Name", name);
 
         if(qry.list()!=null&&qry.list().size()>0)
@@ -111,7 +123,9 @@ public class PrisonerManager {
 
     public static BeanPrisoner getPrisoner(int id) throws BaseException{
         Session session = HibernateUtil.getSession();
-        return  session.get(BeanPrisoner.class,id);
+
+        return (BeanPrisoner) session.get(BeanPrisoner.class,id);
+
     }
     public static void main(String[] args) throws IOException {
         PrisonerManager prisonerManager=new PrisonerManager();
@@ -122,7 +136,9 @@ public class PrisonerManager {
 //            e.printStackTrace();
 //        }
         try {
+
             BeanPrisoner p =prisonerManager.hasPrisoner("林永良");
+
             System.out.println(p.getPrisonerid());
         } catch (BaseException e) {
             e.printStackTrace();

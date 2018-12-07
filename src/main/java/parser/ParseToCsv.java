@@ -15,10 +15,9 @@ import hibernate_test.*;
 import java.awt.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
+
 
 
 
@@ -27,15 +26,16 @@ import static tools.Csv.writer;
 public class ParseToCsv {
     //writer(String filepath, Pair<String[], ArrayList<String[]>> data, boolean hasHeader, String charSet)
 
-    public static String[] titles = {"°¸ºÅ", "·¨ÔºÃû³Æ", "µØÇø", "Ê±¼ä", "Ò»°¸ÈËÊı", "ÄêÁä×îĞ¡ÈËÔ±³öÉúÈÕÆÚ", "µÚÒ»±»¸æĞÕÃû", "ĞÔ±ğ", "Éí·İÖ¤", "Ãû×å", "ÎÄ»¯³Ì¶È", "Ö°Òµ", "»§¼®", "×ïÃû", "ĞÌ·£ÖÖÀà", "ĞÌÆÚ", "²Æ²úĞÌÖÖÀà", "²Æ²úĞÌ½ğ¶î", "¶¾Æ·ÖÖÀàºÍÊıÁ¿»òµ¥Î»", "¶¾Æ·µ¥¼Û"};
+    public static String[] titles = {"æ¡ˆå·", "æ³•é™¢åç§°", "åœ°åŒº", "æ—¶é—´", "ä¸€æ¡ˆäººæ•°", "å¹´é¾„æœ€å°äººå‘˜å‡ºç”Ÿæ—¥æœŸ", "ç¬¬ä¸€è¢«å‘Šå§“å", "æ€§åˆ«", "èº«ä»½è¯", "åæ—", "æ–‡åŒ–ç¨‹åº¦", "èŒä¸š", "æˆ·ç±", "ç½ªå", "åˆ‘ç½šç§ç±»", "åˆ‘æœŸ", "è´¢äº§åˆ‘ç§ç±»", "è´¢äº§åˆ‘é‡‘é¢", "æ¯’å“ç§ç±»å’Œæ•°é‡æˆ–å•ä½", "æ¯’å“å•ä»·"};
     public static Map<String, BeanPrisoner> PrisonerMap = new HashMap<>();
 
     /**
-     *
-     * @param filePath  ¶ÁÈ¡docËùÔÚµÄÎÄ¼ş¼ĞÎ»ÖÃ
-     * @param saveName  ´æ´¢µÄjsonºÍcsvÎÄ¼şÃû
+     * @param savePath  ç€›æ¨ºåjsonéœå®‘své¨å‹®çŸ¾å¯°ï¿½
+     * @param filePath  ç’‡è¯²å½‡docéµï¿½é¦ã„§æ®‘é‚å›¦æ¬¢æ¾¶é€›ç¶…ç¼ƒï¿½
+     * @param saveName  ç€›æ¨ºåé¨åˆ¯sonéœå®‘své‚å›¦æ¬¢éšï¿½ æ¿¡ï¿½ E://Test//
      */
-    public static void parseToCsv(String filePath, String saveName) {
+    public static void parseToCsv(String filePath,String savePath, String saveName) {
+
         ArrayList<String[]> crimeList = new ArrayList<>();
         ArrayList<String> filePaths = new ReadFilePath().getFiles(filePath);
         ArrayList<BeanCrime> crimes = new ArrayList<>();
@@ -46,18 +46,17 @@ public class ParseToCsv {
         DrugManager drugManager = new DrugManager();
 
         for (String fileName : filePaths) {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ");
-            SimpleDateFormat bakDateFormat = new SimpleDateFormat("yyyyÄêMÔÂdÈÕ");
 
             BeanCrime tempCrime = new MatchCrime().Match(fileName);
-            String firstPrisonerName = tempCrime.getFirstPrisoner().getName();
-            System.out.println("----First Prisoner"+firstPrisonerName);
-
             if(tempCrime==null||tempCrime.getFirstPrisoner()==null)
                 continue;
 
+            String firstPrisonerName = tempCrime.getFirstPrisoner().getName();
+            System.out.println("----First Prisoner"+firstPrisonerName);
+
+
             /*
-             * @ÎŞÊı¾İ¿âÊ±Ó³Éä
+             * éƒçŠ³æšŸé¹î†¼ç°±éƒèˆµæ§§çï¿½
              */
             List<BeanPrisoner> prisoners = new ArrayList<>();
 //            for(String name:tempCrime.getPrisoners().keySet()){
@@ -66,7 +65,7 @@ public class ParseToCsv {
 //                prisoners.add(prisoner);
 //            }
             /*
-             * @ÎŞÊı¾İ¿âÊ±Ó³Éä
+             * éƒçŠ³æšŸé¹î†¼ç°±éƒèˆµæ§§çï¿½
              */
             try {
                 Session session = HibernateUtil.getSession();
@@ -104,88 +103,53 @@ public class ParseToCsv {
 
             for(BeanPrisoner prisoner:prisoners)
                 if(!prisonerMap.containsKey(prisoner.getName()))
-                    prisonerMap.put(prisoner.getName(),prisoner);    //ºÏ²¢ map
+                    prisonerMap.put(prisoner.getName(),prisoner);    //éšå è‹Ÿ map
 
             crimes.add(tempCrime);
-            String crimeDate ="";
-            String minPrisonerBirth = "";
-            try{
-                crimeDate = dateFormat.format(tempCrime.getDate());
-            }
-            catch (Exception e)
-            {
-                crimeDate=bakDateFormat.format(tempCrime.getDate());
-            }
-            try{
-                minPrisonerBirth = dateFormat.format(tempCrime.getFirstPrisoner().getBirth());
-            }
-            catch (Exception e)
-            {
-                minPrisonerBirth = bakDateFormat.format(tempCrime.getFirstPrisoner().getBirth());
-            }
-            crimeList.add(new String[]{tempCrime.getSerial(), tempCrime.getProcuratorate(), tempCrime.getArea(), crimeDate, Integer.toString(tempCrime.getPrisoners().size()),
-                        minPrisonerBirth,
-                        tempCrime.getFirstPrisoner().getName(), tempCrime.getFirstPrisoner().getSex(), tempCrime.getFirstPrisoner().getIdCard(), tempCrime.getFirstPrisoner().getNation(),
-                        tempCrime.getFirstPrisoner().getLevel(), tempCrime.getFirstPrisoner().getWork(), tempCrime.getFirstPrisoner().getPlace(), tempCrime.getFirstPrisoner().getCrime(), tempCrime.getFirstPrisoner().getPrisonType(), tempCrime.getFirstPrisoner().getPrisonTime(),
-                        tempCrime.getFirstPrisoner().getPenalty(), Float.toString(tempCrime.getFirstPrisoner().getPenaltySum()), tempCrime.showDrugs(), tempCrime.showAverageDrugs()});
+            String crimeDate = formatTime(tempCrime.getDate());
+            String minPrisonerBirth = formatTime(tempCrime.getFirstPrisoner().getBirth());
 
+            crimeList.add(new String[]{tempCrime.getSerial(), tempCrime.getProcuratorate(), tempCrime.getArea(), crimeDate, Integer.toString(tempCrime.getPrisoners().size()),
+                    minPrisonerBirth,
+                    tempCrime.getFirstPrisoner().getName(), tempCrime.getFirstPrisoner().getSex(), tempCrime.getFirstPrisoner().getIdCard(), tempCrime.getFirstPrisoner().getNation(),
+                    tempCrime.getFirstPrisoner().getLevel(), tempCrime.getFirstPrisoner().getWork(), tempCrime.getFirstPrisoner().getPlace(), tempCrime.getFirstPrisoner().getCrime(), tempCrime.getFirstPrisoner().getPrisonType(), tempCrime.getFirstPrisoner().getPrisonTime(),
+                    tempCrime.getFirstPrisoner().getPenalty(), Float.toString(tempCrime.getFirstPrisoner().getPenaltySum()), tempCrime.showDrugs(), tempCrime.showAverageDrugs()});
 
         }
-        ParseToJson.ParseToJson(prisonerMap,ParseToRelationList.parseToRelation(filePath),saveName);
+        ParseToJson.ParseToJson(prisonerMap,ParseToRelationList.parseToRelation(filePath),savePath,saveName);
         try {
-            writer("/Users/mac/Desktop/Output/" + saveName + ".csv", new Pair<>(titles, crimeList), true, "UTF-8");
+            writer(savePath + saveName + ".csv", new Pair<>(titles, crimeList), true, "UTF-8");
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
     }
+    public static String formatTime(Date date)
+    {
+        if(date == null)
+            return "";
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyéªç¢Méˆå‰déƒï¿½");
+        SimpleDateFormat bakDateFormat = new SimpleDateFormat("yyyyéªç¢éˆå‰éƒï¿½");
 
-    public static void sqlParseToCsv(String area, String saveName) {
-        ArrayList<String[]> crimeList = new ArrayList<>();
-
-        CrimeManager crimeManager = new CrimeManager();
-        PrisonerManager prisonerManager = new PrisonerManager();
-        DrugManager drugManager = new DrugManager();
-
+        String returnDateString = "";
         try {
-            List<BeanCrime> crimes = crimeManager.loadAllCrimes();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ");
-
-
-            for(BeanCrime tempCrime:crimes)
+            returnDateString = dateFormat.format(date);
+        }catch (Exception e)
+        {
+            try {
+                returnDateString = bakDateFormat.format(date);
+            }catch (Exception e1)
             {
-                BeanPrisoner firstPrisoner = prisonerManager.getPrisoner(tempCrime.getFirstprisonerid());
-                try {
-                    crimeList.add(new String[]{tempCrime.getSerial(), tempCrime.getProcuratorate(), tempCrime.getArea(), dateFormat.format(tempCrime.getDate()), Integer.toString(tempCrime.getPrisoners().size()),
-                            dateFormat.format(tempCrime.getMinimumAge()),
-                            firstPrisoner.getName(), firstPrisoner.getSex(), firstPrisoner.getIdCard(), firstPrisoner.getNation(),
-                            firstPrisoner.getLevel(), firstPrisoner.getWork(),firstPrisoner.getPlace(), firstPrisoner.getCrime(), firstPrisoner.getPrisonType(), firstPrisoner.getPrisonTime(),
-                            firstPrisoner.getPenalty(), Float.toString(firstPrisoner.getPenaltySum()), tempCrime.showDrugs(), tempCrime.showAverageDrugs()});
-                }
-                catch (Exception e){
-                    crimeList.add(new String[]{tempCrime.getSerial(), tempCrime.getProcuratorate(), tempCrime.getArea(), dateFormat.format(tempCrime.getDate()), Integer.toString(tempCrime.getPrisoners().size()),
-                            "",
-                            firstPrisoner.getName(), firstPrisoner.getSex(), firstPrisoner.getIdCard(), firstPrisoner.getNation(),
-                            firstPrisoner.getLevel(), firstPrisoner.getWork(),firstPrisoner.getPlace(), firstPrisoner.getCrime(), firstPrisoner.getPrisonType(), firstPrisoner.getPrisonTime(),
-                            firstPrisoner.getPenalty(), Float.toString(firstPrisoner.getPenaltySum()), tempCrime.showDrugs(), tempCrime.showAverageDrugs()});
-                    }
+                returnDateString="";
             }
         }
-        catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-
-        //ParseToJson.ParseToJson(prisonerMap,ParseToRelationList.parseToRelation(filePath),saveName);
-        try {
-            writer("/Users/mac/Desktop/" + saveName + ".csv", new Pair<>(titles, crimeList), true, "UTF-8");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        return returnDateString;
     }
 
     public static void main(String args[]) {
-        ParseToCsv.parseToCsv("/Users/mac/Desktop/2018yearsixto/º¼Öİ", "º¼Öİ");
+        ParseToCsv.parseToCsv("E:\\ç€›ï¸¿ç¯„\\javaæ¤¤åœ­æ´°\\é’ã‚…å–…æ¶”î›‚\2017éªç£‹è›‹ç»‰ä½µï¿½ä½½ç©¿é—æ ¥ï¿½ä½½ç¹æˆæ’±ï¿½ä½¸åŸ—é–«çŠ³ç˜¨éä½ºå§œ\\æ¶“èŠ¥æŒ‰", "E:\\ç€›ï¸¿ç¯„\\javaæ¤¤åœ­æ´°\\","æ¶“èŠ¥æŒ‰17");
+
     }
 
 }

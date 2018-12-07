@@ -14,6 +14,7 @@ public class BeanCase {
     private String info;    //关联的信息
 
 
+
     public String getPerson1() {
         return person1;
     }
