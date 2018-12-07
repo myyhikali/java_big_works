@@ -1,25 +1,31 @@
-<%--
+<%@ page import="parser.ParseToCsv" %><%--
   Created by IntelliJ IDEA.
   User: mac
   Date: 2018/11/20
   Time: 下午6:32
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
+<%@ page contentType="text/html;charset=GB2312" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
+    <%--<meta charset="utf-8">--%>
+    <meta charset="GB2312">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>title</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="css/animate.css" rel="stylesheet">
+        <link href="css/plugins/dropzone/basic.css" rel="stylesheet">
+        <link href="css/plugins/dropzone/dropzone.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
 
 </head>
 <body>
@@ -60,6 +66,9 @@
                 <li>
                     <a href="d3.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">d3</span> </a>
                 </li>
+                <li >
+                    <a href="gragh_label.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">label图表</span> </a>
+                </li>
             </ul>
 
         </div>
@@ -70,11 +79,6 @@
             <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                    <%--<form role="search" class="navbar-form-custom" method="post" action="#">--%>
-                        <%--<div class="form-group">--%>
-                            <%--<input type="text" placeholder="请输入搜索内容" class="form-control" name="top-search" id="top-search">--%>
-                        <%--</div>--%>
-                    <%--</form>--%>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
@@ -91,26 +95,52 @@
                 <div class="col-lg-12">
                     <div class="text-center m-t-lg">
                         <h1>
-                            欢迎来到青铜小姐姐的项目
+                            欢迎来到小姐姐的项目
                         </h1>
                         <small>
-                            没错，他很可爱
+                            没错，ta很可爱
                         </small>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-10">
-                    <div  class="input-group">
-                        <input type="text" class="form-control" id="editor" placeholder="请输入需要处理的文件夹的路径">
-                        <button id="btn1" class="btn btn-primary" data-loading-text="Loading..."
-                                type="button" onclick="uploadmass()"> 确定
-                        </button>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>文件上传</h5>
                     </div>
+                    <form  action="${pageContext.request.contextPath}/servlet/UploadHandleServlet"
+                           class="dropzone" id="dropzoneForm" enctype="multipart/form-data" method="post">
+                        <div class="ibox-content col-lg-6">
+                            <div class="fallback">
+                                <input name="file" type="file" multiple />
+                            </div>
+                        </div>
+                        <%--<input class="btn btn-primary col-lg-2" type="submit" value="上传">--%>
+                    </form>
                 </div>
+
             </div>
         </div>
     </div>
+
+
+        <%--<div class="container-fluid">--%>
+            <%--<form id="form" action="upload/insert" method="post" enctype="multipart/form-data">--%>
+                <%--<div class="row form-group">--%>
+                    <%--<label class="col-md-4">图片上传:</label>--%>
+                    <%--<div class="col-sm-12">--%>
+                        <%--<input id="input-id" name="file" multiple type="file" data-show-caption="true">--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</form>--%>
+        <%--</div>--%>
+        <div id="page-wrapper" class="gray-bg">
+
+        </div>
+
+
 </div>
 
 <!-- Mainly scripts -->
@@ -122,10 +152,40 @@
 <!-- Custom and plugin javascript -->
 <script src="js/inspinia.js"></script>
 <script src="js/plugins/pace/pace.min.js"></script>
+<script src="js/plugins/dropzone/dropzone.js"></script>
 <script>
     function uploadmass() {
-        //document.getElementById("editor").value;
+
+       // String s=txt;
+        <%--<%// ParseToCsv.parseToCsv(request.getParameter("editor"), "web_table.json");%>--%>
+        <%--<%System.out.println("------");--%>
+        <%--String s=request.getParameter("editor");--%>
+        <%--if(s==null)--%>
+            <%--System.out.println("null");--%>
+        <%--else--%>
+            <%--System.out.println(request.getParameter("editor"));%>--%>
+       // var txt=document.getElementById("editor").value;
+        //alert(txt)
     }
+    <%--$("#btn1").click(function(){--%>
+        <%--$.ajax({--%>
+            <%--type:'POST',--%>
+            <%--url:'',--%>
+            <%--success:function(){--%>
+                <%--var txt=document.getElementById("editor1").value;--%>
+               <%--// request.setAttrubite(txt);--%>
+                <%--alert(txt);--%>
+
+                <%--<%System.out.println("--11--");--%>
+                    <%--System.out.println(request.getParameter("editor"));--%>
+                    <%--System.out.println(request.getParameter("editor1"));--%>
+                   <%--%>--%>
+
+            <%--}--%>
+        <%--});--%>
+    <%--});--%>
+
+
 </script>
 </body>
 
