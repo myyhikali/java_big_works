@@ -21,12 +21,14 @@ public class MatchCrime {
     			"|([二][Ｏ〇oO一二三四五六七八九十[0-9][\\s][^;,，。（\\n\\r]]+[年][一二三四五六七八九十[0-9][\\s][^。\\n\\r]]+[月][一二三四五六七八九十[0-9][ ]&&[^。\\n\\r]]+[日]?)"+
 				"|([2][Ｏ〇oO一二三四五六七八九十[0-9][\\s][^;,，。（\\n\\r]]+[年][一二三四五六七八九十[0-9][\\s][^。\\n\\r]]+[月][一二三四五六七八九十[0-9][ ]&&[^。\\n\\r]]+[日]?)";
 
+
 //	public static String regexInfo="(经审理查明[\\s\\S.]+上述[\\u0391-\\uFFE5]*事实)" +
 //			"|(经审理查明[\\s\\S.]+以上事实)"+
 //			"|(公诉机关指控[\\s\\S.]+以上事实)"+
 //			"|(公诉机关指控[\\s\\S.]+上述事实)"+
 //			"|(人民检察院指控[\\s\\S.]+上述事实)"+
 //			"|(人民检察院指控[\\s\\S.]+以上事实)";        //公诉机关指控  //人民检察院指控";  指控：。。。公诉机关认为
+
 	
 	private Pattern pattern = Pattern.compile(regexPlace);
 	public BeanCrime Match(String fileName)
@@ -38,7 +40,9 @@ public class MatchCrime {
 		Map<String,BeanPrisoner> prisonerMap=new MatchPrisoner().Match(text);
         List<BeanPrisoner> prisoners = new ArrayList<BeanPrisoner>();
         Matcher matcher = pattern.matcher(text);
+
 //        Matcher infoMatcher = Pattern.compile(regexInfo).matcher(text);
+
 
         while( matcher.find() )
         {
@@ -91,9 +95,11 @@ public class MatchCrime {
         	}
         }
 
+
 		if(prisonerMap.keySet().size()==0)
 			return null;
         if(crime.getFirstPrisoner()==null)
+
         	for(String name:prisonerMap.keySet())
         		crime.setFirstPrisoner(prisonerMap.get(name));
 

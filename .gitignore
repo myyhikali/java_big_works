@@ -4,7 +4,6 @@
 *.iml
 *.ipr
 *.iws
-*.xml
 
 /.idea
 **/*.iml

@@ -17,7 +17,9 @@ import tools.Txt;
 public class MatchPrisoner {
     private static String regexPrisoner =
 //	"([一二三四五六七八九十]+[\\pP][被][告][人][\\u0391-\\uFFE5&&[^\n]]+)";   [一二三四五六七八九十]*[、]*]?
+
             "(([\\n\\r\\t ]|[、])被告人[\\u0391-\\uFFE5·&&[^\\n]]+?犯[\\u0391-\\uFFE5[ ]（）()[0-9],&&[^\\n]]+?并处[\\u0391-\\uFFE5[0-9].[ ]&&[^\\n\\r（(,，。]]+)";
+
     //·:：[A-Z][a-z][0-9][ ]()（）,
     private static String regexInfo = "([\\n\\r\\t ]被告人[\\u0391-\\uFFE5·:：\"“”&[A-Z][a-z][0-9][ ]()（）,&&[^；\\n\\r\\t]]+生[\\u0391-\\uFFE5[A-Z][a-z][0-9]()（）\\- ,；;.?\\n\\r&&[^.。]]+。" +
             "[\\u0391-\\uFFE5[A-Z][a-z][0-9]\\- ,.&&[^.。]]*)|" +

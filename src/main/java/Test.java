@@ -7,7 +7,7 @@ public class Test {
 
     public static void main(String[] args) throws IOException{
 
-        System.out.print(Format.getCaseYear("(2018)"));
+        System.out.println(java.net.URLDecoder.decode("%C4%E3%BA%C3","GBK"));
 
     }
 }

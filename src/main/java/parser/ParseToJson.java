@@ -14,6 +14,7 @@ import java.util.Set;
 
 public class ParseToJson {
 
+
     public static void ParseToJson(Map<String, BeanPrisoner> prisonerMap, List<BeanCase> cases,String savePath,String saveName){
 
         String nodes="\"nodes\":[ ";
@@ -27,6 +28,7 @@ public class ParseToJson {
             nodes=nodes.concat("{\"id\":\""+name+"\",\"group\":1," +
                     "\"crimeType\":"+"\""+prisonerMap.get(name).getCrime()+"\","+
                     "\"birth\":"+"\""+birthTime+"\","+
+
                     "\"penalty\":"+"\""+prisonerMap.get(name).getPenalty()+"\","+
                     "\"penaltySum\":"+"\""+Float.toString(prisonerMap.get(name).getPenaltySum())+"\","+
                     "\"prisonType\":"+"\""+prisonerMap.get(name).getPrisonType()+"\","+
@@ -40,6 +42,7 @@ public class ParseToJson {
                     "{\"id\":\""+prisonerMap.get(name).getBeanCrime().getSerial()+"\",\"group\":30" +",\"area\":\""+prisonerMap.get(name).getBeanCrime().getArea()+"\"," +
                     "\"criminalProcura\":"+"\""+prisonerMap.get(name).getBeanCrime().getProcuratorate()+"\","+
                     "\"criminalCaseTime\":"+"\""+crimeTime+"\""+"},\r\n");
+
 
             links=links.concat("{\"source\":\"" +name+ "\",\"target\":\""+ prisonerMap.get(name).getBeanCrime().getSerial()+ "\",\"value\":120,\"relation\":\""+"案号"+"\"},\r\n");
 
@@ -64,6 +67,7 @@ public class ParseToJson {
             }
         }
         String text="{".concat(nodes).concat("],").concat(links).concat("]}");
+
         Txt.WriteDictionary(text,"E://学习//java项目//Test//"+saveName+".json",false,"UTF-8");
     }
 

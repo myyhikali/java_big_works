@@ -5,6 +5,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 //import org.springframework.context.annotation.Bean;
 
+
 import java.io.IOException;
 import java.util.*;
 
@@ -26,7 +27,9 @@ public class CrimeManager {
     {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
+
         BeanCrime crime = (BeanCrime) session.get(BeanCrime.class, crimeid);
+
         crime.setFirstprisonerid(prisonerid);
 
         session.getTransaction().commit();
@@ -39,7 +42,9 @@ public class CrimeManager {
 
         String hql="Select Max(a.crimeid) From BeanCrime as a";
         int crimeid=(int)session.createQuery(hql).uniqueResult();
+
         BeanCrime crime= (BeanCrime) session.get(BeanCrime.class,crimeid);
+
         session.getTransaction().commit();
         session.close();
        // System.out.println("------"+crimeid+crime.getCrimeid());
@@ -52,7 +57,9 @@ public class CrimeManager {
             Session session=HibernateUtil.getSession();
             session.beginTransaction();
             String hql="From BeanCrime";
+
             Query qry = session.createQuery(hql);
+
             list=qry.list();
             session.getTransaction().commit();
             session.close();

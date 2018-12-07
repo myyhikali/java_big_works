@@ -19,6 +19,8 @@ import java.util.*;
 import java.util.List;
 
 
+
+
 import static tools.Csv.writer;
 
 public class ParseToCsv {
@@ -28,11 +30,12 @@ public class ParseToCsv {
     public static Map<String, BeanPrisoner> PrisonerMap = new HashMap<>();
 
     /**
-     * @param savePath  存储json和csv的路径
-     * @param filePath  读取doc所在的文件夹位置
-     * @param saveName  存储的json和csv文件名 如 E://Test//
+     * @param savePath  瀛樺偍json鍜宑sv鐨勮矾寰�
+     * @param filePath  璇诲彇doc鎵�鍦ㄧ殑鏂囦欢澶逛綅缃�
+     * @param saveName  瀛樺偍鐨刯son鍜宑sv鏂囦欢鍚� 濡� E://Test//
      */
     public static void parseToCsv(String filePath,String savePath, String saveName) {
+
         ArrayList<String[]> crimeList = new ArrayList<>();
         ArrayList<String> filePaths = new ReadFilePath().getFiles(filePath);
         ArrayList<BeanCrime> crimes = new ArrayList<>();
@@ -43,6 +46,7 @@ public class ParseToCsv {
         DrugManager drugManager = new DrugManager();
 
         for (String fileName : filePaths) {
+
             BeanCrime tempCrime = new MatchCrime().Match(fileName);
             if(tempCrime==null||tempCrime.getFirstPrisoner()==null)
                 continue;
@@ -52,7 +56,7 @@ public class ParseToCsv {
 
 
             /*
-             * 无数据库时映射
+             * 鏃犳暟鎹簱鏃舵槧灏�
              */
             List<BeanPrisoner> prisoners = new ArrayList<>();
 //            for(String name:tempCrime.getPrisoners().keySet()){
@@ -61,7 +65,7 @@ public class ParseToCsv {
 //                prisoners.add(prisoner);
 //            }
             /*
-             * 无数据库时映射
+             * 鏃犳暟鎹簱鏃舵槧灏�
              */
             try {
                 Session session = HibernateUtil.getSession();
@@ -99,7 +103,7 @@ public class ParseToCsv {
 
             for(BeanPrisoner prisoner:prisoners)
                 if(!prisonerMap.containsKey(prisoner.getName()))
-                    prisonerMap.put(prisoner.getName(),prisoner);    //合并 map
+                    prisonerMap.put(prisoner.getName(),prisoner);    //鍚堝苟 map
 
             crimes.add(tempCrime);
             String crimeDate = formatTime(tempCrime.getDate());
@@ -111,7 +115,6 @@ public class ParseToCsv {
                     tempCrime.getFirstPrisoner().getLevel(), tempCrime.getFirstPrisoner().getWork(), tempCrime.getFirstPrisoner().getPlace(), tempCrime.getFirstPrisoner().getCrime(), tempCrime.getFirstPrisoner().getPrisonType(), tempCrime.getFirstPrisoner().getPrisonTime(),
                     tempCrime.getFirstPrisoner().getPenalty(), Float.toString(tempCrime.getFirstPrisoner().getPenaltySum()), tempCrime.showDrugs(), tempCrime.showAverageDrugs()});
 
-
         }
         ParseToJson.ParseToJson(prisonerMap,ParseToRelationList.parseToRelation(filePath),savePath,saveName);
         try {
@@ -120,13 +123,14 @@ public class ParseToCsv {
             e.printStackTrace();
         }
 
+
     }
     public static String formatTime(Date date)
     {
         if(date == null)
             return "";
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日");
-        SimpleDateFormat bakDateFormat = new SimpleDateFormat("yyyy年M月d日");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy骞碝M鏈坉d鏃�");
+        SimpleDateFormat bakDateFormat = new SimpleDateFormat("yyyy骞碝鏈坉鏃�");
 
         String returnDateString = "";
         try {
@@ -144,7 +148,8 @@ public class ParseToCsv {
     }
 
     public static void main(String args[]) {
-        ParseToCsv.parseToCsv("E:\\学习\\java项目\\判决书\\2017年走私、贩卖、运输、制造毒品罪\\丽水", "E:\\学习\\java项目\\","丽水17");
+        ParseToCsv.parseToCsv("E:\\瀛︿範\\java椤圭洰\\鍒ゅ喅涔\2017骞磋蛋绉併�佽穿鍗栥�佽繍杈撱�佸埗閫犳瘨鍝佺姜\\涓芥按", "E:\\瀛︿範\\java椤圭洰\\","涓芥按17");
+
     }
 
 }

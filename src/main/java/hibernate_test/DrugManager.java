@@ -1,6 +1,7 @@
 package hibernate_test;
 
 import model.BeanDrug;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -29,7 +30,9 @@ public class DrugManager {
             Session session=HibernateUtil.getSession();
             session.beginTransaction();
             String hql="From BeanDrug";
+
             Query qry = session.createQuery(hql);
+
             list=qry.list();
             session.getTransaction().commit();
             session.close();
@@ -42,9 +45,11 @@ public class DrugManager {
     public static Map<String,Float> loadAllDrugWeigh() throws BaseException {
         Map<String,Float> map=new HashMap<>() ;
         List<BeanDrug> list=loadAllDrugs();
-        map.put("¼×»ù±½±û°·",0.0f);
-        map.put("±ù¶¾", 0.0f);
-        map.put("º£ÂåÒò", 0.0f);
+
+        map.put("ç”²åŸºè‹¯ä¸™èƒº",0.0f);
+        map.put("å†°æ¯’", 0.0f);
+        map.put("æµ·æ´›å› ", 0.0f);
+
         try{
             float value;
             for(BeanDrug drug:list){

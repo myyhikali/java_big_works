@@ -15,10 +15,12 @@ public class MatchDrug {
 	public static String Drug[] = {"[甲][基][苯][丙][胺]", "[冰][毒]", "[大][麻]", "[可][卡][因]", "[海][洛][因]", "[吗][啡]", "[卡][西][酮]", "[鸦][片]", "[K][粉]", "[摇][头][丸]", "[杜][冷][丁]", "[古][柯]", "[咖][啡][因]", "[三][唑][仑]", "[羟][基][丁][酸]"};
 	//public static String Drug[] = {"([甲][基][苯][丙][胺])", "([冰][毒])", "([大][麻])", "([可][卡][因])", "([海][洛][因])", "([吗][啡])", "([卡][西][酮])", "([鸦][片])", "([K][粉])", "([摇][头][丸])", "([杜][冷][丁])", "([古][柯])", "([咖][啡][因])", "([三][唑][仑])", "([羟][基][丁][酸])"};
 
+
 	public String regexPrice = "([\\d\\s.]+|[一二三四五六七八九十百千万]+)(元|人民币)";
 	public String regexPriceBak="([\\d\\s.]+|[一二三四五六七八九十百千万]+)((美元)|(欧元)|(日元)|(港币)|(英镑))";
 	public String regexNum	= "([\\d\\s.]+|[一二三四五六七八九十百千万亿]+)(克|千克|公斤|斤|吨|毫克|微克|g|kg|mg|ug|t)";
 	public String regexNumBak = "([\\d\\s.]+|[一二三四五六七八九十百千万亿]+)(粒|小]粒|小包|包|袋|小袋|块|小块|个)";
+
 
 	private String regexDrugName="("+"".join("|", Drug)+")";
 
@@ -76,10 +78,12 @@ public class MatchDrug {
 					drugNumberMatch.add(drugs);
 
 					while(drugNumMatcher.find()) {
+
 						String []drug={drugNumMatcher.group(1),drugNumMatcher.group(2)};
 						drugNumberMatch.add(drug);
 					}
 					drugNumberStack.addAll(drugNumberMatch);
+
 				}
 				else {
 					Pattern patternNumBak = Pattern.compile(regexNumBak);
@@ -109,6 +113,7 @@ public class MatchDrug {
 					drugPriceFlag = false;
 					drugPrice = 0;
 				}
+
 //				if(i==sentences.length-1 && drugNameFlag && drugPriceFlag && drugNumberStack.size()>0) {
 //					BeanDrug beanDrug = new BeanDrug();
 //					beanDrug.setDrugPriceMagnitude(drugPriceMagnitude);
@@ -117,6 +122,7 @@ public class MatchDrug {
 //					beanDrug.setDrugType(drugName);
 //					drugSet.add(beanDrug);
 //				}
+
 		}
 		return drugSet;
 

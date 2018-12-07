@@ -1,6 +1,7 @@
 package hibernate_test;
 
 import model.BeanPrisoner;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 //import org.hibernate.query.Query;
@@ -27,7 +28,9 @@ public class PrisonerManager {
             Session session=HibernateUtil.getSession();
             session.beginTransaction();
             String hql="From BeanPrisoner";
+
             org.hibernate.Query qry = session.createQuery(hql);
+
             list=qry.list();
             session.getTransaction().commit();
             session.close();
@@ -40,17 +43,21 @@ public class PrisonerManager {
     public static Map<String,Integer> loadPrisonersAge() throws BaseException {
         Map<String,Integer> map=new HashMap<>() ;
         List<BeanPrisoner> list=new ArrayList<>();
-        map.put("20ÀÍ“‘œ¬", 0);
-        map.put("20~30ÀÍ", 0);
-        map.put("30~40ÀÍ", 0);
-        map.put("40~50ÀÍ", 0);
-        map.put("50~60ÀÍ", 0);
-        map.put("60ÀÍ“‘…œ", 0);
+
+        map.put("20Â≤Å‰ª•‰∏ã", 0);
+        map.put("20~30Â≤Å", 0);
+        map.put("30~40Â≤Å", 0);
+        map.put("40~50Â≤Å", 0);
+        map.put("50~60Â≤Å", 0);
+        map.put("60Â≤Å‰ª•‰∏ä", 0);
+
         try{
             Session session=HibernateUtil.getSession();
             session.beginTransaction();
             String hql="From BeanPrisoner";
+
             org.hibernate.Query qry = session.createQuery(hql);
+
             list=qry.list();
             session.getTransaction().commit();
             session.close();
@@ -65,28 +72,30 @@ public class PrisonerManager {
                 calendar_past.setTime(prisoner.getBirth());
                 int age=calendar_now.get(Calendar.YEAR)-calendar_past.get(Calendar.YEAR);
                 if(age<20){
-                   value= map.get("20ÀÍ“‘œ¬");
-                   map.put("20ÀÍ“‘œ¬",++value );
+
+                   value= map.get("20Â≤Å‰ª•‰∏ã");
+                   map.put("20Â≤Å‰ª•‰∏ã",++value );
                 }
                 else if(20<=age&&age<30){
-                    value= map.get("20~30ÀÍ");
-                    map.put("20~30ÀÍ",++value );
+                    value= map.get("20~30Â≤Å");
+                    map.put("20~30Â≤Å",++value );
                 }
                 else if(30<=age&&age<40){
-                    value= map.get("30~40ÀÍ");
-                    map.put("30~40ÀÍ",++value );
+                    value= map.get("30~40Â≤Å");
+                    map.put("30~40Â≤Å",++value );
                 }
                 else if(40<=age&&age<50){
-                    value= map.get("40~50ÀÍ");
-                    map.put("40~50ÀÍ",++value );
+                    value= map.get("40~50Â≤Å");
+                    map.put("40~50Â≤Å",++value );
                 }
                 else if(50<=age&&age<60){
-                    value= map.get("50~60ÀÍ");
-                    map.put("50~60ÀÍ",++value );
+                    value= map.get("50~60Â≤Å");
+                    map.put("50~60Â≤Å",++value );
                 }
                 else {
-                    value= map.get("60ÀÍ“‘…œ");
-                    map.put("60ÀÍ“‘…œ",++value );
+                    value= map.get("60Â≤Å‰ª•‰∏ä");
+                    map.put("60Â≤Å‰ª•‰∏ä",++value );
+
                 }
             }
         }
@@ -97,7 +106,9 @@ public class PrisonerManager {
     }
     public BeanPrisoner hasPrisoner(String name) throws  BaseException{
         Session session = HibernateUtil.getSession();
+
         Query qry = (Query) session.createQuery("from BeanPrisoner where name = :Name");
+
         qry.setString("Name", name);
 
         if(qry.list()!=null&&qry.list().size()>0)
@@ -112,7 +123,9 @@ public class PrisonerManager {
 
     public static BeanPrisoner getPrisoner(int id) throws BaseException{
         Session session = HibernateUtil.getSession();
+
         return (BeanPrisoner) session.get(BeanPrisoner.class,id);
+
     }
     public static void main(String[] args) throws IOException {
         PrisonerManager prisonerManager=new PrisonerManager();
@@ -123,7 +136,9 @@ public class PrisonerManager {
 //            e.printStackTrace();
 //        }
         try {
-            BeanPrisoner p =prisonerManager.hasPrisoner("¡÷”¿¡º");
+
+            BeanPrisoner p =prisonerManager.hasPrisoner("ÊûóÊ∞∏ËâØ");
+
             System.out.println(p.getPrisonerid());
         } catch (BaseException e) {
             e.printStackTrace();
