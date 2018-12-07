@@ -1,12 +1,12 @@
 /target
 *.csv
 
-/.idea
 *.iml
 *.ipr
 *.iws
+*.xml
 
 /.idea
-*.iml
 **/*.iml
+
 
