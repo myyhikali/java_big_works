@@ -17,12 +17,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ParseToRelationList {
-    private static String regexRelation = "(经审理查明[\\s\\S.]+上述事实)"+
-            "|(经审理查明[\\s\\S.]+以上事实)";
+    private static String regexRelation =
+            "(经审理查明[\\s\\S.]+上述[\\u0391-\\uFFE5]*事实)" +
+            "|(经审理查明[\\s\\S.]+以上事实)"+
+            "|(公诉机关指控[\\s\\S.]+以上事实)"+
+            "|(公诉机关指控[\\s\\S.]+上述事实)"+
+            "|(人民检察院指控[\\s\\S.]+上述事实)"+
+            "|(人民检察院指控[\\s\\S.]+以上事实)";
     public static List<BeanCase> parseToRelation(String filePath)
     {
         ArrayList<String> filePaths=new ReadFilePath().getFiles(filePath);
-        List<BeanCase> cases = new ArrayList<BeanCase>();
+        List<BeanCase> cases = new ArrayList<>();
 
         for (String fileName : filePaths) {
             String text = ReadDocUtil.readWord(fileName);
@@ -33,7 +38,6 @@ public class ParseToRelationList {
                 cases.addAll(MatchCase.MatchCase(matcher.group()));
             }
         }
-
         return  cases;
     }
 

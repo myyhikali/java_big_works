@@ -4,4 +4,23 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <servlet>
+        <servlet-name>javaBigProject</servlet-name>
+        <servlet-class>python.Console</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>javaBigProject</servlet-name>
+        <url-pattern>/answer.do</url-pattern>
+    </servlet-mapping>
+         
+    <!--文件上传注册-->
+    <servlet>
+        <servlet-name>UploadHandleServlet</servlet-name>
+        <servlet-class>fileinput.UploadHandleServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UploadHandleServlet</servlet-name>
+        <url-pattern>/servlet/UploadHandleServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

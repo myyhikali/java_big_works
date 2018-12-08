@@ -3,8 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 public class BeanPrisoner {
+    private int prisonerid;
     private String name;
     private String sex;
     private Date birth;
@@ -13,22 +15,21 @@ public class BeanPrisoner {
     private String work;
     private String idCard;
     private String place;
-    private List<String> crime;
+    private String crime;
     private String penalty;
     private float  penaltySum;
     private String prisonType;
     private String prisonTime;
-    private List<BeanCase> cases;
+    private Set<BeanCase> cases;
+    private int crimeid;
     private BeanCrime beanCrime;
 
-    public String showCrime()
-    {
-        String crimes="";
-        if(crime==null)
-            return crimes;
-        for(String c:crime)
-            crimes=crimes.concat(c);
-        return crimes;
+    public int getPrisonerid() {
+        return prisonerid;
+    }
+
+    public void setPrisonerid(int prisonerid) {
+        this.prisonerid = prisonerid;
     }
 
     public String getName() {
@@ -55,14 +56,6 @@ public class BeanPrisoner {
         this.place = place;
     }
 
-    public List<String> getCrime() {
-        return crime;
-    }
-
-    public void setCrime(List<String> crime) {
-        this.crime = crime;
-    }
-
     public String getPrisonType() {
         return prisonType;
     }
@@ -71,11 +64,11 @@ public class BeanPrisoner {
         this.prisonType = prisonTime;
     }
 
-    public List<BeanCase> getCases() {
+    public Set<BeanCase> getCases() {
         return cases;
     }
 
-    public void setCases(List<BeanCase> cases) {
+    public void setCases(Set<BeanCase> cases) {
         this.cases = cases;
     }
 
@@ -143,6 +136,14 @@ public class BeanPrisoner {
         this.prisonTime = prisonTime;
     }
 
+    public String getCrime() {
+        return crime;
+    }
+
+    public void setCrime(String crime) {
+        this.crime = crime;
+    }
+
     public BeanCrime getBeanCrime() {
         return beanCrime;
     }
@@ -150,4 +151,15 @@ public class BeanPrisoner {
     public void setBeanCrime(BeanCrime beanCrime) {
         this.beanCrime = beanCrime;
     }
+
+    public int getCrimeid() {
+        return crimeid;
+    }
+
+    public void setCrimeid(int crimeid) {
+        this.crimeid = crimeid;
+    }
+
+
 }
+

@@ -72,7 +72,8 @@
                     <a href="d3.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">d3</span> </a>
                 </li>
                 <li >
-                    <a href="gragh_label.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">d3</span> </a>
+                    <a href="gragh_label.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">graghlabel</span> </a>
+
                 </li>
             </ul>
 
@@ -199,6 +200,7 @@
                                         <td><%=tl.getSerial() %></td>
                                         <td><%=tl.getProcuratorate()%></td>
                                         <td><%=tl.getArea() %></td>
+
                                         <td><%=crimeDate %></td>
                                         <td><%=tl.getPrisonersSet().size() %></td>
 
@@ -219,6 +221,7 @@
                                         <td><%=Float.toString(firstPrisoner.getPenaltySum())%></td>
                                         <td><%=tl.sqlShowDrugs() %></td>
                                         <td><%=tl.sqlShowAverageDrugs() %></td>
+
 
                                     </tr>
                                     <%

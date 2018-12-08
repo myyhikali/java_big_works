@@ -55,6 +55,9 @@
                 <li class="active">
                     <a href="d3.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">d3</span> </a>
                 </li>
+                <li>
+                    <a href="gragh_label.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">简单问答</span> </a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -77,9 +80,15 @@
         </div>
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
+                <div class="col-lg-2">
+                    <select class="selectpicker show-tick form-control col-lg-2" id="select_picker" data-live-search="true">
+                        <option>人物</option>
+                        <option>案件</option>
+                    </select>
+                </div>
                 <div class="col-lg-3">
                     <div  class="input-group">
-                        <input type="text" class="form-control" id="editor" placeholder="请输入人名">
+                        <input type="text" class="form-control" id="editor" placeholder="请输入">
                         <span class="input-group-btn">
                             <button class="btn btn-primary" type="button" id="myButton" onclick="massage()">
                                 确认
@@ -243,8 +252,8 @@
                 for (let k = 0; k < links.length; ++k){
                     if(links[k].target === graph.nodes[j].id) {
                         if (!local_nodes.find(function(x) {
-                            return x.id === graph.nodes[j].id;
-                        }))
+                                return x.id === graph.nodes[j].id;
+                            }))
                             nodes.push(graph.nodes[j]);
                         // console.log(graph.nodes[j])
                     }
@@ -493,6 +502,9 @@
 </script>
 <script>
     function massage(){
+        var txt=document.getElementById("editor").value,
+            select=document.getElementById("select_picker").value;
+        alert(txt+select);
     }
 </script>
 </body>

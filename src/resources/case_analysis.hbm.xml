@@ -1,0 +1,92 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model">
+
+    <class name="BeanDrug" table="BeanDrug">
+        <id name="drugid" type="int">
+            <column name="drugid"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="drugType" type="string">
+            <column name="drugType" />
+        </property>
+        <property name="drugNum" type="float">
+            <column name="drugNum" />
+        </property>
+        <property name="drugMagnitude" type="string" column="drugMagnitude" />
+        <property name="drugPrice" type="float" column="drugPrice" />
+        <property name="drugPriceMagnitude" type="string" column="drugPriceMagnitude" />
+        <!--<property name="crimeid" type="int" column="crimeid" />-->
+        <many-to-one name="beanCrime" column="crimeid" class="BeanCrime" insert="true" lazy="false"/>
+    </class>
+
+    <class name="BeanCase" table="BeanCase">
+    <id name="caseid" type="int">
+        <column name="caseid"/>
+        <generator class="assigned"/>
+    </id>
+    <property name="person1" type="string">
+        <column name="person1" />
+    </property>
+    <property name="person2" type="string">
+        <column name="person2" />
+    </property>
+    <property name="info" type="string" column="info" />
+
+    </class>
+
+    <class name="BeanCrime" table="BeanCrime">
+        <id name="crimeid" type="int">
+            <column name="crimeid"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="area" type="string" column="area" />
+        <property name="serial" type="string" column="serial" />
+        <property name="procuratorate" type="string" column="procuratorate" />
+        <property name="date" type="java.util.Date" column="date" />
+        <property name="minimumAge" type="java.util.Date" column="minimumAge" />
+        <property name="firstprisonerid" type="int" column="firstprisonerid" />
+        <set name ="prisonersSet" table="BeanPrisoner" lazy="false">
+            <key column="crimeid"/>
+            <one-to-many class="BeanPrisoner"/>
+        </set>
+        <set name ="drugs" table="BeanDrug" lazy="false">
+            <key column="crimeid"/>
+            <one-to-many class="BeanDrug"/>
+        </set>
+    </class>
+    <class name="BeanPrisoner" table="BeanPrisoner">
+        <id name="prisonerid" type="int">
+            <column name="prisonerid"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="sex" type="string">
+            <column name="sex" />
+        </property>
+        <property name="birth" type="java.util.Date">
+            <column name="birth" />
+        </property>
+        <property name="nation" type="string" column="nation" />
+        <property name="level" type="string" column="level" />
+        <property name="work" type="string">
+            <column name="work" />
+        </property>
+        <property name="idCard" type="string" column="idCard" />
+        <property name="place" type="string" column="place" />
+        <property name="penalty" type="string" column="penalty" />
+        <property name="penaltySum" type="float" column="penaltySum" />
+        <property name="prisonType" type="string" column="prisonType" />
+        <property name="crime" type="string" column="crime" />
+        <property name="prisonTime" type="string" column="prisonTime" />
+        <many-to-one name="beanCrime" column="crimeid" class="BeanCrime" insert="true" lazy="false"/>
+
+        <!--<set name ="beanCrime" lazy="false">-->
+            <!--<key column="crimeid"/>-->
+            <!--<one-to-many class="BeanCrime"/>-->
+        <!--</set>-->
+    </class>
+
+
+</hibernate-mapping>

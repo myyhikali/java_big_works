@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="hibernate_test" %>
+<%@ page import="hibernate_test.PrisonerManager" %>
 <!DOCTYPE html>
 <html>
 
@@ -57,6 +59,9 @@
                 </li>
                 <li>
                     <a href="d3.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">d3</span> </a>
+                </li>
+                <li >
+                    <a href="gragh_label.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">graghlabel</span> </a>
                 </li>
             </ul>
 
@@ -124,7 +129,7 @@
                 <div class="col-lg-6">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>线图</h5>
+                            <h5>2018年中案件数量分布</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -143,7 +148,7 @@
                 <div class="col-lg-6">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>饼图</h5>
+                            <h5>毒品贩卖量</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -273,7 +278,9 @@
         };
         var barData = {
             label: "bar",
+            <%PrisonerManager prisoners=new PrisonerManager();%>
             data: [
+                <%%>
                 [1, 34],
                 [2, 25],
                 [3, 19],
