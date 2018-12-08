@@ -2,6 +2,14 @@
 <%@ page import="model.BeanCrime" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="hibernate_test.CrimeManager" %>
+<%@ page import="hibernate_test.PrisonerManager" %>
+<%@ page import="hibernate_test.DrugManager" %>
+<%@ page import="org.hibernate.Session" %>
+<%@ page import="hibernate_test.HibernateUtil" %>
+<%@ page import="org.hibernate.Query" %>
+<%@ page import="model.BeanPrisoner" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -62,6 +70,9 @@
                 </li>
                 <li>
                     <a href="d3.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">d3</span> </a>
+                </li>
+                <li >
+                    <a href="gragh_label.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">d3</span> </a>
                 </li>
             </ul>
 
@@ -148,42 +159,70 @@
                                     </thead>
                                     <tbody>
                                     <%
-                                        try {
-                                            ReadFilePath m=new ReadFilePath();
-                                            List<BeanCrime> list =m.getCrimes("/Users/mac/Desktop/2018年1-6月份毒品刑事案件一审/舟山");
-                                            SimpleDateFormat format=new SimpleDateFormat("yyyy年MM月dd日");
+                                            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+                                            SimpleDateFormat bakDateFormat = new SimpleDateFormat("yyyy年M月d日");
+
+                                            List<BeanCrime> list=CrimeManager.loadAllCrimes();
+
                                             for(BeanCrime tl:list)
-                                            {%>
+                                            {
+                                                String crimeDate="";
+                                                String minPrisonerBirth="";
+                                                BeanPrisoner firstPrisoner = PrisonerManager.getPrisoner(tl.getFirstprisonerid());
+                                                try{
+                                                    crimeDate = dateFormat.format(tl.getDate());
+                                                }
+                                                catch (Exception e)
+                                                {
+                                                    try {
+                                                        crimeDate=bakDateFormat.format(tl.getDate());
+                                                    }
+                                                    catch (Exception e1){
+                                                        crimeDate="";
+                                                    }
+                                                }
+                                                try{
+                                                    minPrisonerBirth = dateFormat.format(tl.getMinimumAge());
+                                                }
+                                                catch (Exception e)
+                                                {
+                                                    try {
+                                                        minPrisonerBirth = bakDateFormat.format(tl.getFirstPrisoner().getBirth());
+                                                    }
+                                                    catch (Exception e1)
+                                                    {
+                                                        minPrisonerBirth="";
+                                                    }
+                                                }
+                                    %>
                                     <tr>
                                         <td><%=tl.getSerial() %></td>
                                         <td><%=tl.getProcuratorate()%></td>
                                         <td><%=tl.getArea() %></td>
-                                        <td><%=format.format(tl.getDate()) %></td>
-                                        <td><%=tl.getPrisoners().size() %></td>
+                                        <td><%=crimeDate %></td>
+                                        <td><%=tl.getPrisonersSet().size() %></td>
 
-                                        <td><%=format.format(tl.getMinimumAge())%></td>
-                                        <td><%=tl.getFirstPrisoner().getName() %></td>
-                                        <td><%=tl.getFirstPrisoner().getSex() %></td>
-                                        <td><%=tl.getFirstPrisoner().getIdCard() %></td>
-                                        <td><%=tl.getFirstPrisoner().getNation()%></td>
+                                        <td><%=minPrisonerBirth%></td>
+                                        <td><%=firstPrisoner.getName() %></td>
+                                        <td><%=firstPrisoner.getSex() %></td>
+                                        <td><%=firstPrisoner.getIdCard() %></td>
+                                        <td><%=firstPrisoner.getNation()%></td>
 
-                                        <td><%=tl.getFirstPrisoner().getLevel() %></td>
-                                        <td><%=tl.getFirstPrisoner().getWork() %></td>
-                                        <td><%=tl.getFirstPrisoner().getPlace() %></td>
-                                        <td><%=tl.getFirstPrisoner().showCrime()%></td>
-                                        <td><%=tl.getFirstPrisoner().getPrisonType() %></td>
+                                        <td><%=firstPrisoner.getLevel() %></td>
+                                        <td><%=firstPrisoner.getWork() %></td>
+                                        <td><%=firstPrisoner.getPlace() %></td>
+                                        <td><%=firstPrisoner.getCrime()%></td>
+                                        <td><%=firstPrisoner.getPrisonType() %></td>
 
-                                        <td><%=tl.getFirstPrisoner().getPrisonTime() %></td>
-                                        <td><%=tl.getFirstPrisoner().getPenalty() %></td>
-                                        <td><%=Float.toString(tl.getFirstPrisoner().getPenaltySum())%></td>
-                                        <td><%=tl.showDrugs() %></td>
-                                        <td><%=tl.showAverageDrugs() %></td>
+                                        <td><%=firstPrisoner.getPrisonTime() %></td>
+                                        <td><%=firstPrisoner.getPenalty() %></td>
+                                        <td><%=Float.toString(firstPrisoner.getPenaltySum())%></td>
+                                        <td><%=tl.sqlShowDrugs() %></td>
+                                        <td><%=tl.sqlShowAverageDrugs() %></td>
 
                                     </tr>
-                                    <%}}
-                                    catch (Exception e){
-                                        e.printStackTrace();
-                                    }
+                                    <%
+                                            }
                                     %>
                                     </tbody>
 
@@ -225,7 +264,6 @@
                 {extend: 'excel', title: 'ExampleFile'},
                 {extend: 'pdf', title: 'ExampleFile'}
             ]
-
         });
 
     });
