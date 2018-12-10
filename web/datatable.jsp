@@ -5,22 +5,19 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="hibernate_test.CrimeManager" %>
 <%@ page import="hibernate_test.PrisonerManager" %>
-<%@ page import="hibernate_test.DrugManager" %>
-<%@ page import="org.hibernate.Session" %>
-<%@ page import="hibernate_test.HibernateUtil" %>
-<%@ page import="org.hibernate.Query" %>
 <%@ page import="model.BeanPrisoner" %>
+<%@ page import="parser.ParseToCsv" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
 
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <%--<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">--%>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -72,8 +69,7 @@
                     <a href="d3.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">d3</span> </a>
                 </li>
                 <li >
-                    <a href="gragh_label.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">graghlabel</span> </a>
-
+                    <a href="gragh_label.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">d3</span> </a>
                 </li>
             </ul>
 
@@ -98,24 +94,27 @@
                 </ul>
             </nav>
         </div>
+
+
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
                 <h2>数据表格</h2>
-                <%--<ol class="breadcrumb">--%>
-                    <%--<li>--%>
-                        <%--<a href="index.html">主页</a>--%>
-                    <%--</li>--%>
-                    <%--<li>--%>
-                        <%--<a>表格</a>--%>
-                    <%--</li>--%>
-                    <%--<li class="active">--%>
-                        <%--<strong>数据表格</strong>--%>
-                    <%--</li>--%>
-                <%--</ol>--%>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="homepage.jsp">主页</a>
+                    </li>
+                    <li>
+                        <a>表格</a>
+                    </li>
+                    <li class="active">
+                        <strong>数据表格</strong>
+                    </li>
+                </ol>
             </div>
             <div class="col-lg-2">
             </div>
         </div>
+
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <div class="col-lg-12">
@@ -130,7 +129,7 @@
                         <div class="ibox-content">
 
                             <div class="table-responsive" style="overflow:scroll;">
-                                <table class="table table-striped  table-bordered table text-nowrap table-hover dataTables-example" style="min-width:1500px;">
+                                <table class="dataTables-example  table table-striped table-bordered table text-nowrap table-hover" style="min-width:1500px;">
                                     <thead>
                                     <tr>
                                         <th>案号</th>
@@ -160,47 +159,19 @@
                                     </thead>
                                     <tbody>
                                     <%
-                                            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日");
-                                            SimpleDateFormat bakDateFormat = new SimpleDateFormat("yyyy年M月d日");
-
-                                            List<BeanCrime> list=CrimeManager.loadAllCrimes();
-
-                                            for(BeanCrime tl:list)
-                                            {
-                                                String crimeDate="";
-                                                String minPrisonerBirth="";
-                                                BeanPrisoner firstPrisoner = PrisonerManager.getPrisoner(tl.getFirstprisonerid());
-                                                try{
-                                                    crimeDate = dateFormat.format(tl.getDate());
-                                                }
-                                                catch (Exception e)
-                                                {
-                                                    try {
-                                                        crimeDate=bakDateFormat.format(tl.getDate());
-                                                    }
-                                                    catch (Exception e1){
-                                                        crimeDate="";
-                                                    }
-                                                }
-                                                try{
-                                                    minPrisonerBirth = dateFormat.format(tl.getMinimumAge());
-                                                }
-                                                catch (Exception e)
-                                                {
-                                                    try {
-                                                        minPrisonerBirth = bakDateFormat.format(tl.getFirstPrisoner().getBirth());
-                                                    }
-                                                    catch (Exception e1)
-                                                    {
-                                                        minPrisonerBirth="";
-                                                    }
-                                                }
+                                        List<BeanCrime> list=CrimeManager.loadAllCrimes();
+                                        for(BeanCrime tl:list)
+                                        {
+                                            String crimeDate="";
+                                            String minPrisonerBirth="";
+                                            BeanPrisoner firstPrisoner = PrisonerManager.getPrisoner(tl.getFirstprisonerid());
+                                            crimeDate = ParseToCsv.formatTime(tl.getDate());
+                                            crimeDate = ParseToCsv.formatTime(tl.getMinimumAge());
                                     %>
                                     <tr>
                                         <td><%=tl.getSerial() %></td>
                                         <td><%=tl.getProcuratorate()%></td>
                                         <td><%=tl.getArea() %></td>
-
                                         <td><%=crimeDate %></td>
                                         <td><%=tl.getPrisonersSet().size() %></td>
 
@@ -221,11 +192,9 @@
                                         <td><%=Float.toString(firstPrisoner.getPenaltySum())%></td>
                                         <td><%=tl.sqlShowDrugs() %></td>
                                         <td><%=tl.sqlShowAverageDrugs() %></td>
-
-
                                     </tr>
                                     <%
-                                            }
+                                        }
                                     %>
                                     </tbody>
 
@@ -260,13 +229,29 @@
         $('.dataTables-example').DataTable({
             pageLength: 25,
             responsive: true,
+            bPaginate: true,  //是否显示分页
+
+            showExport: true,
+            exportDataTydef:'all',
             dom: '<"html5buttons"B>lTfgitp',
             buttons: [
                 { extend: 'copy'},
                 {extend: 'csv'},
                 {extend: 'excel', title: 'ExampleFile'},
-                {extend: 'pdf', title: 'ExampleFile'}
+                {extend: 'pdf', title: 'ExampleFile'},
+
+                {extend: 'print',
+                    customize: function (win){
+                        $(win.document.body).addClass('white-bg');
+                        $(win.document.body).css('font-size', '10px');
+
+                        $(win.document.body).find('table')
+                            .addClass('compact')
+                            .css('font-size', 'inherit');
+                    }
+                }
             ]
+
         });
 
     });
